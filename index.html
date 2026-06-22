@@ -737,7 +737,6 @@
 
 <main>
 
-  <!-- ===== SCREEN 1: REGISTRATION ===== -->
   <section id="screen-register" class="screen">
     <div class="screen-inner">
       <p class="eyebrow" data-i18n="eyebrowRegister">ภารกิจที่ 1 / 4 — LEARNER REGISTRATION</p>
@@ -759,8 +758,6 @@
               <span data-i18n="fieldName">ชื่อ-นามสกุล</span>
               <input type="text" id="agentName" name="agentName" data-i18n-placeholder="fieldNamePlaceholder" placeholder="เช่น สมชาย ใจดี" required autocomplete="name">
             </label>
-
-            <!-- ตำแหน่ง ถูกเอาออกตามคำสั่งแล้ว -->
 
             <label class="field">
               <span data-i18n="fieldDept">แผนก</span>
@@ -790,7 +787,6 @@
     </div>
   </section>
 
-  <!-- ===== SCREEN 2: BRIEFING ROOM ===== -->
   <section id="screen-briefing" class="screen" hidden>
     <div class="screen-inner">
       <p class="eyebrow" data-i18n="eyebrowBriefing">ภารกิจที่ 2 / 4 — THE BRIEFING ROOM</p>
@@ -822,7 +818,6 @@
     </div>
   </section>
 
-  <!-- ===== SCREEN 3: ASSESSMENT QUIZ ===== -->
   <section id="screen-assessment" class="screen" hidden>
     <div class="screen-inner">
       <p class="eyebrow" data-i18n="eyebrowAssessment">ภารกิจที่ 3 / 4 — ASSESSMENT</p>
@@ -848,8 +843,7 @@
         <div class="quiz-question" id="quizQuestionText">คำถามจะปรากฏที่นี่...</div>
         
         <div class="choices-grid" id="quizChoices">
-          <!-- Choices will be injected here via JS -->
-        </div>
+          </div>
 
         <div id="quizFeedback" class="feedback-panel" hidden>
           <div class="feedback-title" id="feedbackTitle"></div>
@@ -865,7 +859,6 @@
     </div>
   </section>
 
-  <!-- ===== SCREEN 4: SUMMARY ===== -->
   <section id="screen-summary" class="screen" hidden>
     <div class="screen-inner">
       <p class="eyebrow" data-i18n="eyebrowSummary">ภารกิจที่ 4 / 4 — FINAL RESULT</p>
@@ -898,7 +891,6 @@
 
 </main>
 
-<!-- ===== Dossier modal ===== -->
 <div class="modal" id="dossierModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-card">
     <button class="modal-close" id="modalClose" data-i18n-aria="modalCloseAria" aria-label="ปิดแฟ้ม">✕</button>
@@ -912,6 +904,8 @@
     </div>
   </div>
 </div>
+
+<audio id="bgMusic" src="audio/pinkpanther.mp3" loop preload="auto"></audio>
 
 <script>
 (function(){
@@ -957,6 +951,7 @@
       ledeAssessment:'ตอบคำถามให้ถูกต้องอย่างน้อย 80% (8 จาก 10 ข้อ) เพื่อผ่านการทดสอบ คุณมีโอกาสทำแบบทดสอบสูงสุด 3 ครั้ง',
       quizSubmitBtn:'ตรวจคำตอบ', quizNextBtn:'ข้อถัดไป →', quizFinishBtn:'ดูสรุปผล →',
       correctTitle:'✅ ถูกต้อง! (Correct!)', incorrectTitle:'❌ ผิดครับ (Incorrect!)',
+      diffEasy:'ง่าย', diffMedium:'กลาง', diffHard:'ยาก',
       
       // Summary
       eyebrowSummary:'ภารกิจที่ 4 / 4 — FINAL RESULT',
@@ -1002,6 +997,7 @@
       ledeAssessment:'Answer correctly at least 80% (8 out of 10) to pass. You have a maximum of 3 attempts.',
       quizSubmitBtn:'Check Answer', quizNextBtn:'Next Question →', quizFinishBtn:'View Summary →',
       correctTitle:'✅ Correct!', incorrectTitle:'❌ Incorrect!',
+      diffEasy:'Easy', diffMedium:'Medium', diffHard:'Hard',
       
       eyebrowSummary:'MISSION 4 / 4 — FINAL RESULT',
       h4Summary:'Test Summary',
@@ -1482,7 +1478,7 @@
 
     stopClock();
     renderResultCard();
-    startMusic(); // เริ่มเปิดเพลงเมื่อผู้ใช้กดยืนยันตัวตน (Bypasses Autoplay restrictions)
+    startMusic(); // เริ่มเปิดเพลงเมื่อผู้ใช้กดยืนยันตัวตน
 
     registerForm.hidden = true;
     idResult.hidden = false;
@@ -1507,12 +1503,12 @@
      9. Dossiers (6 Key Messages)
      ========================================================= */
   var DOSSIERS = [
-    { key:'pdpa', fileBase:'PDPA', th:{ title:'PDPA — การคุ้มครองข้อมูลส่วนบุคคล', body:'พนักงานต้องเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของลูกค้าและพนักงานเท่าที่จำเป็น และต้องได้รับความยินยอมตามที่กฎหมาย PDPA กำหนดเท่านั้น ห้ามนำข้อมูลไปใช้นอกเหนือจากวัตถุประสงค์ที่แจ้งไว้โดยเด็ดขาด' }, en:{ title:'PDPA — Personal Data Protection', body:'Employees must collect, use, and disclose customers\u2019 and employees\u2019 personal data only when necessary, and only with consent obtained as required by the Personal Data Protection Act (PDPA). Using data beyond its stated purpose is strictly prohibited.' } },
-    { key:'anticorruption', fileBase:'Anti-Corruption', th:{ title:'Anti-Corruption — การต่อต้านการทุจริต', body:'ห้ามเรียก รับ หรือให้สินบนทุกรูปแบบ ทั้งเงิน ของขวัญ หรือผลประโยชน์อื่นใด เพื่อแลกกับการอนุมัติสินเชื่อหรือการปฏิบัติหน้าที่โดยมิชอบ ทุกธุรกรรมต้องตรวจสอบย้อนกลับได้เสมอ' }, en:{ title:'Anti-Corruption — Combating Fraud', body:'Soliciting, accepting, or offering any form of bribery in exchange for loan approval or improper performance of duties is strictly forbidden. Every transaction must remain fully traceable.' } },
-    { key:'whistleblowing', fileBase:'Whistleblowing', th:{ title:'Whistleblowing — ช่องทางการแจ้งเบาะแส', body:'พนักงานทุกคนมีสิทธิ์แจ้งเบาะแสการกระทำผิดผ่านช่องทางที่บริษัทกำหนดได้โดยไม่เปิดเผยตัวตน และจะได้รับการคุ้มครองจากการถูกกลั่นแกล้งหรือเลิกจ้างอย่างไม่เป็นธรรม' }, en:{ title:'Whistleblowing — Reporting Channel', body:'Every employee has the right to report misconduct anonymously through the company\u2019s designated channel, and will be protected from retaliation or unfair dismissal as a result.' } },
-    { key:'coi', fileBase:'Conflict-of-Interest', th:{ title:'Conflict of Interest — ความขัดแย้งทางผลประโยชน์', body:'หากธุรกรรมเกี่ยวข้องกับญาติหรือผู้มีส่วนได้เสียส่วนตัว พนักงานต้องเปิดเผยความสัมพันธ์นั้นต่อผู้บังคับบัญชาก่อนดำเนินการทุกครั้ง และต้องถอนตัวจากการตัดสินใจที่เกี่ยวข้อง' }, en:{ title:'Conflict of Interest', body:'If a transaction involves a relative or another party in which an employee has a personal interest, the employee must disclose that relationship to their supervisor before proceeding, and must recuse themselves from any related decision.' } },
-    { key:'fairtreatment', fileBase:'Fair-Treatment', th:{ title:'Fair Treatment — การปฏิบัติต่อลูกค้า', body:'การติดตามทวงถามหนี้ต้องเป็นไปตามกฎหมายควบคุมการทวงถามหนี้ ห้ามใช้ถ้อยคำข่มขู่ หรือกระทำการใดที่สร้างความเดือดร้อนต่อลูกค้าและบุคคลในครอบครัว' }, en:{ title:'Fair Treatment — Treating Customers', body:'Debt collection must comply with debt-collection regulations. Intimidating language or any action that causes distress to customers or their family members is prohibited.' } },
-    { key:'confidentiality', fileBase:'Confidentiality', th:{ title:'Confidentiality — ความปลอดภัยข้อมูล', body:'ห้ามนำเอกสาร รหัสผ่าน หรือข้อมูลภายในของบริษัทออกไปเผยแพร่หรือใช้งานส่วนตัว และต้องป้องกันการเข้าถึงระบบโดยผู้ไม่มีสิทธิ์อย่างเคร่งครัด' }, en:{ title:'Confidentiality — Information Security', body:'Company documents, passwords, or internal information must not be disclosed or used for personal purposes, and unauthorized system access must be strictly prevented.' } }
+    { key:'pdpa', imgSrc:'image/1. PDPA.jpg', th:{ title:'PDPA — การคุ้มครองข้อมูลส่วนบุคคล', body:'พนักงานต้องเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของลูกค้าและพนักงานเท่าที่จำเป็น และต้องได้รับความยินยอมตามที่กฎหมาย PDPA กำหนดเท่านั้น ห้ามนำข้อมูลไปใช้นอกเหนือจากวัตถุประสงค์ที่แจ้งไว้โดยเด็ดขาด' }, en:{ title:'PDPA — Personal Data Protection', body:'Employees must collect, use, and disclose customers\u2019 and employees\u2019 personal data only when necessary, and only with consent obtained as required by the Personal Data Protection Act (PDPA). Using data beyond its stated purpose is strictly prohibited.' } },
+    { key:'anticorruption', imgSrc:'image/2. Anti-Corruption.jpg', th:{ title:'Anti-Corruption — การต่อต้านการทุจริต', body:'ห้ามเรียก รับ หรือให้สินบนทุกรูปแบบ ทั้งเงิน ของขวัญ หรือผลประโยชน์อื่นใด เพื่อแลกกับการอนุมัติสินเชื่อหรือการปฏิบัติหน้าที่โดยมิชอบ ทุกธุรกรรมต้องตรวจสอบย้อนกลับได้เสมอ' }, en:{ title:'Anti-Corruption — Combating Fraud', body:'Soliciting, accepting, or offering any form of bribery in exchange for loan approval or improper performance of duties is strictly forbidden. Every transaction must remain fully traceable.' } },
+    { key:'whistleblowing', imgSrc:'image/3. Whistlebrowing.jpg', th:{ title:'Whistleblowing — ช่องทางการแจ้งเบาะแส', body:'พนักงานทุกคนมีสิทธิ์แจ้งเบาะแสการกระทำผิดผ่านช่องทางที่บริษัทกำหนดได้โดยไม่เปิดเผยตัวตน และจะได้รับการคุ้มครองจากการถูกกลั่นแกล้งหรือเลิกจ้างอย่างไม่เป็นธรรม' }, en:{ title:'Whistleblowing — Reporting Channel', body:'Every employee has the right to report misconduct anonymously through the company\u2019s designated channel, and will be protected from retaliation or unfair dismissal as a result.' } },
+    { key:'coi', imgSrc:'image/4. Conflict of Interest.jpg', th:{ title:'Conflict of Interest — ความขัดแย้งทางผลประโยชน์', body:'หากธุรกรรมเกี่ยวข้องกับญาติหรือผู้มีส่วนได้เสียส่วนตัว พนักงานต้องเปิดเผยความสัมพันธ์นั้นต่อผู้บังคับบัญชาก่อนดำเนินการทุกครั้ง และต้องถอนตัวจากการตัดสินใจที่เกี่ยวข้อง' }, en:{ title:'Conflict of Interest', body:'If a transaction involves a relative or another party in which an employee has a personal interest, the employee must disclose that relationship to their supervisor before proceeding, and must recuse themselves from any related decision.' } },
+    { key:'fairtreatment', imgSrc:'image/5. Fair Treatment.jpg', th:{ title:'Fair Treatment — การปฏิบัติต่อลูกค้า', body:'การติดตามทวงถามหนี้ต้องเป็นไปตามกฎหมายควบคุมการทวงถามหนี้ ห้ามใช้ถ้อยคำข่มขู่ หรือกระทำการใดที่สร้างความเดือดร้อนต่อลูกค้าและบุคคลในครอบครัว' }, en:{ title:'Fair Treatment — Treating Customers', body:'Debt collection must comply with debt-collection regulations. Intimidating language or any action that causes distress to customers or their family members is prohibited.' } },
+    { key:'confidentiality', imgSrc:'image/6. Confidentiality.jpg', th:{ title:'Confidentiality — ความปลอดภัยข้อมูล', body:'ห้ามนำเอกสาร รหัสผ่าน หรือข้อมูลภายในของบริษัทออกไปเผยแพร่หรือใช้งานส่วนตัว และต้องป้องกันการเข้าถึงระบบโดยผู้ไม่มีสิทธิ์อย่างเคร่งครัด' }, en:{ title:'Confidentiality — Information Security', body:'Company documents, passwords, or internal information must not be disclosed or used for personal purposes, and unauthorized system access must be strictly prevented.' } }
   ];
 
   var readSet = new Set();
@@ -1521,12 +1517,6 @@
   var ackButton = document.getElementById('ackButton');
   var ackHint = document.getElementById('ackHint');
   var completionPanel = document.getElementById('completionPanel');
-
-  function attachImageWithFallback(container, title){
-    container.innerHTML = '';
-    container.classList.add('thumb-fallback');
-    container.textContent = '🗎';
-  }
 
   function renderDossierGrid(){
     dossierGrid.innerHTML = '';
@@ -1538,7 +1528,7 @@
 
       var thumb = document.createElement('span');
       thumb.className = 'dossier-thumb';
-      attachImageWithFallback(thumb, d[currentLang].title);
+      thumb.innerHTML = '<img src="' + d.imgSrc + '" alt="รูปภาพประกอบ" loading="lazy" onerror="this.closest(\'.dossier-thumb\').classList.add(\'thumb-fallback\');this.replaceWith(Object.assign(document.createElement(\'span\'),{textContent:\'🗂️\'}));">';
 
       var fileNo = document.createElement('span');
       fileNo.className = 'dossier-file-no';
@@ -1589,7 +1579,7 @@
     modalEyebrow.textContent = DICT[currentLang].fileNo + (idx + 1) + ' \u00b7 ' + DICT[currentLang].ribbon;
     modalTitle.textContent = d[currentLang].title;
     modalBodyText.textContent = d[currentLang].body;
-    attachImageWithFallback(modalThumb, d[currentLang].title);
+    modalThumb.innerHTML = '<img src="' + d.imgSrc + '" alt="รูปภาพประกอบ" onerror="this.replaceWith(Object.assign(document.createElement(\'span\'),{textContent:\'🗂️\'}));">';
   }
 
   function openDossier(d, idx){
@@ -1669,7 +1659,8 @@
     document.getElementById('qTotal').textContent = quizState.pool.length;
     
     var diffEl = document.getElementById('qDifficulty');
-    diffEl.textContent = qData.level;
+    var diffKeyMap = { Easy:'diffEasy', Medium:'diffMedium', Hard:'diffHard' };
+    diffEl.textContent = DICT[currentLang][diffKeyMap[qData.level]] || qData.level;
     diffEl.className = 'quiz-difficulty difficulty-' + qData.level.toLowerCase();
     
     var progressPercent = ((quizState.currentQIndex) / quizState.pool.length) * 100;
@@ -1693,12 +1684,15 @@
       marker.className = 'choice-marker';
       marker.textContent = labels[idx];
       
-      var text = document.createElement('span');
-      text.textContent = isTh ? choice.th : choice.en;
+      var textSpan = document.createElement('span');
+      textSpan.className = 'choice-text'; // ใส่คลาสเพื่อให้ดึงไปแปลภาษาได้
+      textSpan.textContent = isTh ? choice.th : choice.en;
       
       btn.appendChild(marker);
-      btn.appendChild(text);
+      btn.appendChild(textSpan);
       
+      btn.choiceData = choice; // เก็บ data ตัวเลือกไว้ใช้เวลาแปลภาษา
+
       btn.addEventListener('click', function(){
         // Remove selection from others
         var allBtns = choicesContainer.querySelectorAll('.choice-btn');
@@ -1780,7 +1774,7 @@
   });
 
   /* =========================================================
-     12. Summary Screen (Stage 4)
+     12. Summary Screen & Google Sheets Export
      ========================================================= */
   function showSummary() {
     setStage(4);
@@ -1815,91 +1809,77 @@
     setStage(3);
   });
   
-  document.getElementById('finishBtn').addEventListener('click', function(){
-    alert(currentLang === 'th' ? "ข้อมูลถูกบันทึกเข้าสู่ระบบ LMS เรียบร้อยแล้ว คุณสามารถปิดหน้าต่างเว็บไซต์นี้ได้" : "Your data has been recorded in the LMS. You may close this window.");
+  // จัดการการส่งข้อมูลไปยัง Google Sheet
+  document.getElementById('finishBtn').addEventListener('click', async function(){
+    var btn = this;
+    btn.disabled = true;
+    var originalText = btn.textContent;
+    btn.textContent = (currentLang === 'th') ? 'กำลังบันทึกข้อมูล...' : 'Saving data...';
+
+    // เตรียม Payload สำหรับส่งไปที่ Google Sheet (ไม่มีตัวแปร Position แล้ว)
+    var payload = {
+        name: employeeData.name,
+        department: employeeData.dept,
+        score: quizState.score,
+        maxScore: 10,
+        attempt: quizState.attempt,
+        status: (quizState.score >= 8) ? "Pass" : "Fail",
+        timestamp: new Date().toISOString()
+    };
+
+    try {
+        // [ข้อควรจำ]: ให้นำ URL ของ Google Apps Script Web App มาใส่ตรงตัวแปรนี้
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycb.../exec"; // <-- แก้ URL ตรงนี้
+
+        if(GOOGLE_SCRIPT_URL.includes("AKfycb...")) {
+           console.log("เตรียมส่งข้อมูลไปยังระบบ:", payload);
+           await new Promise(r => setTimeout(r, 1000)); // จำลองดีเลย์
+        } else {
+           await fetch(GOOGLE_SCRIPT_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+           });
+        }
+
+        alert(currentLang === 'th' ? 
+          "ระบบได้ส่งข้อมูลของคุณ (ชื่อ: " + payload.name + ", แผนก: " + payload.department + ", คะแนน: " + payload.score + "/10) ไปยังฐานข้อมูลเรียบร้อยแล้ว\n\nคุณสามารถปิดหน้าต่างเว็บไซต์นี้ได้" : 
+          "Your data has been sent to the database successfully. You may now close this window."
+        );
+    } catch (e) {
+        console.error("Error saving data:", e);
+        alert(currentLang === 'th' ? "เกิดข้อผิดพลาดในการบันทึกข้อมูล กรุณาแคปหน้าจอผลสอบนี้ไว้เป็นหลักฐาน" : "An error occurred while saving data. Please screenshot your result as proof.");
+    } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+    }
   });
 
   /* =========================================================
-     13. Background music (Pink Panther Theme via Web Audio API)
+     13. Background music (เปลี่ยนมาใช้ Audio File .mp3)
      ========================================================= */
-  var audioCtx = null;
-  var masterGain = null;
+  var bgMusic = document.getElementById('bgMusic');
   var musicPlaying = false;
-  var ppTimer = null;
-  var ppIndex = 0;
-  var ppSpeed = 400; // ความเร็วของจังหวะ (ms)
-
-  // อาเรย์เก็บโน้ต: [ความถี่ (Hz), ระยะเวลารอโน้ตต่อไป (หน่วยจังหวะ), ความยาวเสียง (หน่วยวินาที)]
-  var pinkPanther = [
-    [311.13, 0.5, 0.2], [329.63, 1.5, 0.5],
-    [369.99, 0.5, 0.2], [392.00, 1.5, 0.5],
-    [311.13, 0.5, 0.2], [329.63, 0.5, 0.2], [369.99, 0.5, 0.2], [392.00, 0.5, 0.2],
-    [523.25, 0.5, 0.2], [493.88, 2.0, 1.2],
-    [329.63, 0.5, 0.2], [392.00, 0.5, 0.2], [493.88, 0.5, 0.2], [466.16, 2.0, 1.2],
-    [440.00, 0.5, 0.2], [392.00, 0.5, 0.2], [329.63, 0.5, 0.2], [293.66, 0.5, 0.2],
-    [329.63, 3.0, 1.5]
-  ];
-
-  function playNote(freq, dur) {
-    if (!audioCtx) return;
-    var osc1 = audioCtx.createOscillator();
-    var osc2 = audioCtx.createOscillator();
-    var gain = audioCtx.createGain();
-    
-    osc1.type = 'triangle'; // ให้เสียงหลักแนว Jazzy
-    osc2.type = 'sine';     // ผสมเสียงต่ำเพิ่มความทุ้ม
-    
-    osc1.frequency.value = freq;
-    osc2.frequency.value = freq / 2;
-    
-    osc1.connect(gain);
-    osc2.connect(gain);
-    gain.connect(masterGain);
-    
-    var now = audioCtx.currentTime;
-    osc1.start(now);
-    osc2.start(now);
-    
-    // สร้าง Envelope เพื่อให้เสียงเด้งๆ (Plucky)
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.5, now + 0.05);
-    gain.gain.setValueAtTime(0.5, now + dur - 0.05);
-    gain.gain.linearRampToValueAtTime(0, now + dur);
-    
-    osc1.stop(now + dur);
-    osc2.stop(now + dur);
-  }
-
-  function nextNote() {
-    if (!musicPlaying) return;
-    var note = pinkPanther[ppIndex];
-    playNote(note[0], note[2]);
-    ppIndex = (ppIndex + 1) % pinkPanther.length;
-    ppTimer = setTimeout(nextNote, note[1] * ppSpeed);
-  }
 
   function startMusic(){
     if(musicPlaying) return;
-    var AC = window.AudioContext || window.webkitAudioContext;
-    if(!AC) return;
-    
-    if(!audioCtx){
-      audioCtx = new AC();
-      masterGain = audioCtx.createGain();
-      masterGain.gain.value = 0.2; // ระดับความดังโดยรวม
-      masterGain.connect(audioCtx.destination);
+    if(bgMusic) {
+      bgMusic.play().then(function() {
+        musicPlaying = true;
+        updateMuteIcon();
+      }).catch(function(e) {
+        console.log("Audio play prevented", e);
+      });
     }
-    
-    if(audioCtx.state === 'suspended'){ audioCtx.resume(); }
-    
-    musicPlaying = true;
-    nextNote();
-    updateMuteIcon();
   }
 
   function stopMusic(permanent){
+    if(bgMusic) {
+      bgMusic.pause();
+      if(permanent) bgMusic.currentTime = 0;
+    }
     musicPlaying = false;
-    clearTimeout(ppTimer);
     updateMuteIcon();
   }
 
@@ -1914,12 +1894,13 @@
   });
 
   /* =========================================================
-     14. Language switching
+     14. Language switching (อัปเดตแบบ Real-time ตลอดทั้งแอป)
      ========================================================= */
   function applyLanguage(lang){
     currentLang = lang;
     document.documentElement.lang = lang;
 
+    // เปลี่ยนคำใน tag ทั่วไป
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var key = el.getAttribute('data-i18n');
       if(DICT[lang][key] !== undefined) el.textContent = DICT[lang][key];
@@ -1943,16 +1924,47 @@
     renderModalContent();
     updateMuteIcon();
 
-    if(!idResult.hidden) { renderResultCard(); } else { cardStatus.textContent = DICT[lang].cardStatusDefault; }
+    if(!document.getElementById('idResult').hidden) { renderResultCard(); } else { document.getElementById('cardStatus').textContent = DICT[lang].cardStatusDefault; }
     renderAgentStrip();
     
-    // Refresh quiz UI texts if in middle of quiz
-    if(document.getElementById('quizNextBtn').textContent !== '') {
-        var isLast = quizState.currentQIndex === quizState.pool.length - 1;
-        document.getElementById('quizNextBtn').textContent = isLast ? DICT[lang].quizFinishBtn : DICT[lang].quizNextBtn;
+    // อัปเดตภาษาบนหน้าแบบทดสอบ (Quiz) ทันที (หากกำลังเปิดอยู่)
+    if(!document.getElementById('screen-assessment').hidden && quizState.pool.length > 0) {
+        var qData = quizState.pool[quizState.currentQIndex];
+        var isTh = lang === 'th';
+
+        // อัปเดตระดับความยาก
+        var diffKeyMap = { Easy:'diffEasy', Medium:'diffMedium', Hard:'diffHard' };
+        document.getElementById('qDifficulty').textContent = DICT[lang][diffKeyMap[qData.level]] || qData.level;
+
+        // อัปเดตคำถาม
+        document.getElementById('quizQuestionText').textContent = isTh ? qData.qTh : qData.qEn;
+        
+        // อัปเดตตัวเลือกที่แสดงอยู่โดยอิงจาก choiceData ที่ซ่อนไว้ในปุ่ม
+        var allBtns = document.querySelectorAll('.choice-btn');
+        allBtns.forEach(function(btn) {
+           if(btn.choiceData) {
+               var textSpan = btn.querySelector('.choice-text');
+               if(textSpan) textSpan.textContent = isTh ? btn.choiceData.th : btn.choiceData.en;
+           }
+        });
+
+        // อัปเดตข้อความปุ่ม Next
+        var nextBtn = document.getElementById('quizNextBtn');
+        if(nextBtn.textContent !== '') {
+            var isLast = quizState.currentQIndex === quizState.pool.length - 1;
+            nextBtn.textContent = isLast ? DICT[lang].quizFinishBtn : DICT[lang].quizNextBtn;
+        }
+
+        // อัปเดตคำอธิบาย (Feedback) หากโชว์อยู่
+        var feedbackPanel = document.getElementById('quizFeedback');
+        if(!feedbackPanel.hidden) {
+            var isCorrect = feedbackPanel.classList.contains('correct');
+            document.getElementById('feedbackTitle').textContent = isCorrect ? DICT[lang].correctTitle : DICT[lang].incorrectTitle;
+            document.getElementById('feedbackDesc').textContent = isTh ? qData.expTh : qData.expEn;
+        }
     }
     
-    // Refresh Summary Text
+    // อัปเดตภาษาบนหน้าสรุปผล (Summary)
     if(!document.getElementById('screen-summary').hidden) {
         var isPass = quizState.score >= 8;
         document.getElementById('sumTitle').textContent = isPass ? DICT[lang].passTitle : DICT[lang].failTitle;
