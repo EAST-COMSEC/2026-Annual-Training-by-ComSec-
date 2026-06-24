@@ -382,7 +382,9 @@
           </div>
           <div class="id-card-hole" aria-hidden="true"></div>
           <form id="registerForm" class="id-card-body" novalidate>
-            <div class="id-photo" aria-hidden="true">👩‍💼</div>
+            <div class="id-photo" aria-hidden="true" style="overflow:hidden;background:transparent;border:none;">
+              <img src="image/open.jpg" alt="Agent" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.parentElement.innerHTML='👩‍💼'">
+            </div>
             <label class="field">
               <span data-i18n="fieldName">ชื่อ-นามสกุล</span>
               <input type="text" id="agentName" data-i18n-placeholder="fieldNamePlaceholder" placeholder="เช่น สมชาย ใจดี" required autocomplete="name">
@@ -478,11 +480,9 @@
       <p class="eyebrow" data-i18n="eyebrowSummary">ภารกิจที่ 4 / 4 — MISSION RESULT</p>
       <h1 data-i18n="h4Summary">สรุปผลการทดสอบ</h1>
       <div class="summary-card">
-        <!-- Result Video -->
-        <div style="width:100%;max-width:480px;margin:0 auto 22px;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px -8px rgba(0,0,0,.4);">
-          <video id="resultVideo" autoplay muted playsinline style="width:100%;display:block;border-radius:14px;">
-            <source id="resultVideoSrc" src="" type="video/mp4">
-          </video>
+        <!-- Result Image -->
+        <div style="width:100%;max-width:400px;margin:0 auto 22px;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px -8px rgba(0,0,0,.4);">
+          <img id="resultImg" src="" alt="ผลการทดสอบ" style="width:100%;display:block;border-radius:14px;">
         </div>
         <h2 class="summary-title" id="sumTitle">ผ่านการประเมิน</h2>
         <p class="summary-subtitle" id="sumSubtitle">คุณได้ทำภารกิจ The Integrity Agent 2026 สำเร็จแล้ว</p>
@@ -1298,11 +1298,9 @@ document.getElementById('quizNextBtn').addEventListener('click',function(){
 function showSummary(){
   setStage(4);
   var isPass=quizState.score>=8;
-  // Play result video
-  var vid=document.getElementById('resultVideo');
-  var src=document.getElementById('resultVideoSrc');
-  src.src=isPass?'clip/happy.mp4':'clip/sad.mp4';
-  vid.load();vid.play().catch(function(){});
+  // Play result image (happy/sad)
+  var resultImg=document.getElementById('resultImg');
+  resultImg.src=isPass?'image/happy.jpg':'image/sad.jpg';
 
   document.getElementById('finalScore').textContent=quizState.score;
   var scoreBox=document.getElementById('sumScoreBox');

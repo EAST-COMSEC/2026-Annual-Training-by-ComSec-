@@ -708,7 +708,7 @@
 <header class="mission-bar">
   <div class="mission-row">
     <div class="brand">
-      <img src="image/east-logo.png" alt="EAST AUTO CASH" style="height:42px;width:auto;object-fit:contain;filter:drop-shadow(0 0 2px rgba(255,255,255,.8)) brightness(1.15);flex-shrink:0;background:rgba(255,255,255,.12);border-radius:6px;padding:4px 8px;">
+      <img src="image/east-logo.png" alt="EAST AUTO CASH" style="height:56px;width:auto;object-fit:contain;flex-shrink:0;background:#fff;border-radius:8px;padding:6px 12px;box-shadow:0 2px 10px rgba(0,0,0,.3);">
       <div class="brand-text">
         <strong>EAST AUTO CASH</strong>
         <span>THE ETHICS AGENT · <span data-i18n="brandTagline">ภารกิจพิทักษ์องค์กร 2026</span></span>
@@ -754,11 +754,13 @@
           <div class="id-card-hole" aria-hidden="true"></div>
 
           <form id="registerForm" class="id-card-body" novalidate>
-            <div class="id-photo" aria-hidden="true">👤</div>
+            <div class="id-photo" aria-hidden="true" style="overflow:hidden;background:transparent;border:none;">
+              <img src="image/open.jpg" alt="Agent" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.parentElement.innerHTML='👤'">
+            </div>
 
             <label class="field">
               <span data-i18n="fieldName">ชื่อ-นามสกุล</span>
-              <input type="text" id="agentName" name="agentName" data-i18n-placeholder="fieldNamePlaceholder" placeholder="เช่น สมชาย ใจดี" required autocomplete="name">
+              <input type="text" id="agentName" name="agentName" data-i18n-placeholder="fieldNamePlaceholder" placeholder="เช่น นายไม่เซ็น แทนกัน" required autocomplete="name">
             </label>
 
             <label class="field">
@@ -871,26 +873,27 @@
       <h1 id="summary-heading" data-i18n="h4Summary">สรุปผลการทดสอบ</h1>
       
       <div class="summary-card">
-        <div class="summary-icon" id="sumIcon">🏆</div>
+        <!-- Result Image -->
+        <div style="width:100%;max-width:400px;margin:0 auto 22px;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px -8px rgba(0,0,0,.3);">
+          <img id="resultImg" src="" alt="ผลการทดสอบ" style="width:100%;display:block;border-radius:14px;">
+        </div>
         <h2 class="summary-title" id="sumTitle">ผ่านการประเมิน</h2>
         <p class="summary-subtitle" id="sumSubtitle">คุณได้ทำภารกิจ The Ethics Agent 2026 สำเร็จแล้ว</p>
-        
         <div class="score-box pass" id="sumScoreBox">
           <div class="score-number"><span id="finalScore">10</span>/10</div>
           <div class="score-label" id="finalStatus">PASS</div>
         </div>
-        
         <dl class="summary-details">
           <div><dt data-i18n="resLblName">พนักงาน</dt><dd id="sumName"></dd></div>
           <div><dt data-i18n="resLblDept">แผนก</dt><dd id="sumDept"></dd></div>
           <div><dt data-i18n="stripLabelAttempt">ครั้งที่ทำ</dt><dd id="sumAttempt"></dd></div>
           <div><dt data-i18n="resLblStamp">วันเวลาที่บันทึกผล</dt><dd id="sumStamp"></dd></div>
         </dl>
-        
         <div class="summary-actions">
-          <button type="button" id="retakeBtn" class="btn" style="background:#e0e0e0; color:#333;" hidden data-i18n="retakeBtn">ทำแบบทดสอบอีกครั้ง (Retake)</button>
-          <button type="button" id="finishBtn" class="btn btn-primary" data-i18n="finishBtn">จบภารกิจ / ปิดหน้าต่าง</button>
+          <button type="button" id="retakeBtn" class="btn" style="background:#e0e0e0;color:#333;display:none;" data-i18n="retakeBtn">ทำแบบทดสอบอีกครั้ง (Retake)</button>
+          <button type="button" id="finishBtn" class="btn btn-primary" data-i18n="finishBtn">ส่งผลคะแนนเข้าระบบ</button>
         </div>
+        <p id="sumSendingMsg" style="margin-top:12px;font-size:.85rem;color:#666;display:none;"></p>
       </div>
     </div>
   </section>
@@ -926,7 +929,7 @@
       eyebrowRegister:'ภารกิจที่ 1 / 4 — LEARNER REGISTRATION',
       h1Register:'ลงทะเบียน',
       ledeRegister:'ก่อนเริ่มภารกิจ The Ethics Agent 2026 พนักงานทุกคนต้องลงทะเบียนเพื่อรับบัตรประจำตัว ระบบจะบันทึกวันและเวลาลงทะเบียนให้อัตโนมัติ',
-      fieldName:'ชื่อ-นามสกุล', fieldNamePlaceholder:'เช่น สมชาย ใจดี',
+      fieldName:'ชื่อ-นามสกุล', fieldNamePlaceholder:'เช่น นายไม่เซ็น แทนกัน',
       fieldDept:'แผนก', fieldDeptPlaceholder:'เลือกแผนกของคุณ',
       fieldStamp:'วันเวลาลงทะเบียน (ระบบบันทึกอัตโนมัติ)',
       submitBtn:'ยืนยันตัวตน & รับบัตรพนักงาน',
@@ -973,7 +976,7 @@
       eyebrowRegister:'MISSION 1 / 4 — LEARNER REGISTRATION',
       h1Register:'Register',
       ledeRegister:'Before starting The Ethics Agent 2026 mission, every employee must register to receive an ID badge. The system automatically records the registration date and time.',
-      fieldName:'Full Name', fieldNamePlaceholder:'e.g. John Smith',
+      fieldName:'Full Name', fieldNamePlaceholder:'e.g. Mr. No Sign Stand-in',
       fieldDept:'Department', fieldDeptPlaceholder:'Select your department',
       fieldStamp:'Registration Date & Time (auto-recorded)',
       submitBtn:'Confirm Identity & Receive Badge',
@@ -1784,29 +1787,35 @@
      ========================================================= */
   function showSummary() {
     setStage(4);
-    
-    var isPass = quizState.score >= 8; // 80% of 10
-    
+    var isPass = quizState.score >= 8;
+
+    // แสดงรูป happy หรือ sad
+    var resultImg = document.getElementById('resultImg');
+    resultImg.src = isPass ? 'image/happy.jpg' : 'image/sad.jpg';
+
     document.getElementById('finalScore').textContent = quizState.score;
-    
     var scoreBox = document.getElementById('sumScoreBox');
     scoreBox.className = 'score-box ' + (isPass ? 'pass' : 'fail');
-    document.getElementById('finalStatus').textContent = isPass ? "PASS" : "FAIL";
-    
-    document.getElementById('sumIcon').textContent = isPass ? "🏆" : "⚠️";
+    document.getElementById('finalStatus').textContent = isPass ? 'PASS' : 'FAIL';
     document.getElementById('sumTitle').textContent = isPass ? DICT[currentLang].passTitle : DICT[currentLang].failTitle;
     document.getElementById('sumSubtitle').textContent = isPass ? DICT[currentLang].passSubtitle : DICT[currentLang].failSubtitle;
-    
     document.getElementById('sumName').textContent = employeeData.name;
     document.getElementById('sumDept').textContent = currentLang === 'th' ? employeeData.dept : translateDeptToEn(employeeData.dept);
-    document.getElementById('sumAttempt').textContent = quizState.attempt + " / " + quizState.maxAttempts;
+    document.getElementById('sumAttempt').textContent = quizState.attempt + ' / ' + quizState.maxAttempts;
     document.getElementById('sumStamp').textContent = formatStamp(new Date(), currentLang);
 
     var retakeBtn = document.getElementById('retakeBtn');
-    if(!isPass && quizState.attempt < quizState.maxAttempts) {
-      retakeBtn.hidden = false;
+    var finishBtn = document.getElementById('finishBtn');
+
+    if (!isPass && quizState.attempt < quizState.maxAttempts) {
+      // ยังไม่ผ่าน และยังมีสิทธิ์ทำใหม่
+      retakeBtn.style.display = 'inline-flex';
+      finishBtn.style.display = 'none';
     } else {
-      retakeBtn.hidden = true;
+      // ผ่านแล้ว หรือหมดสิทธิ์แล้ว → แสดงปุ่มส่งคะแนน
+      retakeBtn.style.display = 'none';
+      finishBtn.style.display = 'inline-flex';
+      finishBtn.textContent = currentLang === 'th' ? 'ส่งผลคะแนนเข้าระบบ' : 'Submit Score to System';
     }
   }
 
@@ -1814,49 +1823,39 @@
     initQuiz();
     setStage(3);
   });
-  
-  // จัดการการส่งข้อมูลไปยัง Google Sheet
+
   document.getElementById('finishBtn').addEventListener('click', async function(){
     var btn = this;
     btn.disabled = true;
-    var originalText = btn.textContent;
-    btn.textContent = (currentLang === 'th') ? 'กำลังบันทึกข้อมูล...' : 'Saving data...';
+    var msg = document.getElementById('sumSendingMsg');
+    msg.style.display = 'block';
+    msg.textContent = currentLang === 'th' ? 'กำลังส่งข้อมูลเข้าระบบ...' : 'Submitting data...';
 
-    // เตรียม Payload สำหรับส่งไปที่ Google Sheet
     var payload = {
-        name: employeeData.name,
-        department: employeeData.dept,
-        score: quizState.score,
-        maxScore: 10,
-        attempt: quizState.attempt,
-        status: (quizState.score >= 8) ? "Pass" : "Fail",
-        timestamp: new Date().toISOString()
+      name: employeeData.name,
+      department: employeeData.dept,
+      score: quizState.score,
+      maxScore: 10,
+      attempt: quizState.attempt,
+      status: (quizState.score >= 8) ? 'Pass' : 'Fail',
+      timestamp: new Date().toISOString(),
+      course: 'CG & Business Ethics 2026'
     };
 
     try {
-        // URL ของ Google Apps Script Web App (เชื่อมต่อกับ Google Sheet "CG and Business Ethics 2026" แล้ว)
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxT2g7Aeqsq3RtLXGliAyXOxTmg2CvXrl77kBtGZviC8bWGSzZBBVVqnUbwfKOUoFx-/exec";
-
-        // ยิงข้อมูลเข้า Webhook Google Apps Script
-        // หมายเหตุ: ใช้ Content-Type เป็น text/plain เพื่อให้ Apps Script อ่าน e.postData.contents ได้ครบถ้วน
-        // (ถ้าใช้ application/json คู่กับ mode no-cors อาจทำให้ตัวข้อมูลไปไม่ถึงสคริปต์)
-        await fetch(GOOGLE_SCRIPT_URL, {
-           method: 'POST',
-           mode: 'no-cors',
-           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-           body: JSON.stringify(payload)
-        });
-
-        alert(currentLang === 'th' ? 
-          "ระบบได้ส่งข้อมูลของคุณ (ชื่อ: " + payload.name + ", แผนก: " + payload.department + ", คะแนน: " + payload.score + "/10) ไปยังฐานข้อมูลเรียบร้อยแล้ว\n\nคุณสามารถปิดหน้าต่างเว็บไซต์นี้ได้" : 
-          "Your data has been sent to the database successfully. You may now close this window."
-        );
-    } catch (e) {
-        console.error("Error saving data:", e);
-        alert(currentLang === 'th' ? "เกิดข้อผิดพลาดในการบันทึกข้อมูล กรุณาแคปหน้าจอผลสอบนี้ไว้เป็นหลักฐาน" : "An error occurred while saving data. Please screenshot your result as proof.");
-    } finally {
-        btn.textContent = originalText;
-        btn.disabled = false;
+      var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxT2g7Aeqsq3RtLXGliAyXOxTmg2CvXrl77kBtGZviC8bWGSzZBBVVqnUbwfKOUoFx-/exec';
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+      msg.textContent = currentLang === 'th' ? '✅ ส่งข้อมูลสำเร็จ! กำลังกลับหน้าหลัก...' : '✅ Submitted! Returning to home...';
+      setTimeout(function(){ window.location.href = 'index.html'; }, 2000);
+    } catch(e) {
+      console.error(e);
+      msg.textContent = currentLang === 'th' ? '⚠️ เกิดข้อผิดพลาด กรุณาแคปหน้าจอไว้เป็นหลักฐาน' : '⚠️ Error. Please screenshot this result as proof.';
+      btn.disabled = false;
     }
   });
 
