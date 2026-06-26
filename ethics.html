@@ -1076,10 +1076,10 @@
       qTh:'ลูกค้าที่ยังผ่อนรถอยู่ ขอใช้สิทธิ PDPA สั่งให้บริษัทลบข้อมูลส่วนบุคคลทั้งหมดออกจากระบบ (Right to Erasure) บริษัทสามารถลบข้อมูลได้หรือไม่?',
       qEn:'A client currently paying a loan demands the Right to Erasure to delete all their personal data. Can the company delete the data?',
       choices:[
-        { th:'ลบได้ทันทีตามคำขอ', en:'Delete immediately as requested', isCorrect:false },
-        { th:'ลบไม่ได้ บริษัทสามารถปฏิเสธได้เนื่องจากยังมีภาระผูกพันตามสัญญาเช่าซื้อ', en:'Refuse due to ongoing contractual obligations', isCorrect:true },
-        { th:'ลบเฉพาะชื่อ แต่เก็บเบอร์โทรไว้', en:'Delete name but keep phone', isCorrect:false },
-        { th:'ลบข้อมูลในระบบแต่เก็บกระดาษไว้', en:'Delete system data but keep paper copies', isCorrect:false }
+        { th:'ลบได้ทันทีตามที่ลูกค้าขอโดยไม่มีข้อยกเว้น', en:'Delete immediately, no exceptions apply', isCorrect:false },
+        { th:'ปฏิเสธได้ เพราะยังมีภาระตามสัญญาเช่าซื้อที่ยังไม่สิ้นสุด', en:'Refuse — the lease contract obligations are still active', isCorrect:true },
+        { th:'ลบเฉพาะชื่อในระบบ แต่ยังเก็บเบอร์โทรศัพท์ไว้ใช้งาน', en:'Delete the name only, keep the phone number on file', isCorrect:false },
+        { th:'ลบไฟล์ในระบบออก แต่ยังเก็บสำเนากระดาษไว้ที่สาขา', en:'Delete the digital file, but keep paper copies at branch', isCorrect:false }
       ],
       expTh:'สิทธิการลบข้อมูลถูกจำกัดหากบริษัทมีความจำเป็นต้องประมวลผลข้อมูลตามสัญญาหรือกฎหมาย', expEn:'Right to erasure is restricted if data is needed for an active contract or legal claim.', ref:'สิทธิเจ้าของข้อมูล (PDPA Data Subject Rights)' },
     
@@ -1087,10 +1087,10 @@
       qTh:'โน้ตบุ๊กของบริษัทซึ่งมีฐานข้อมูลลูกค้านับหมื่นรายสูญหาย ถือเป็นเหตุ Data Breach ร้ายแรง บริษัทต้องแจ้งสำนักงานคุ้มครองข้อมูลส่วนบุคคล (สคส.) ภายในเวลาเท่าใด?',
       qEn:'A company laptop with 10,000 client records is lost. It is a severe Data Breach. Within what time must the company notify the PDPC?',
       choices:[
-        { th:'ภายใน 24 ชั่วโมง', en:'Within 24 hours', isCorrect:false },
-        { th:'ภายใน 48 ชั่วโมง', en:'Within 48 hours', isCorrect:false },
-        { th:'ภายใน 72 ชั่วโมงนับแต่ทราบเหตุ', en:'Within 72 hours of awareness', isCorrect:true },
-        { th:'ภายใน 7 วันทำการ', en:'Within 7 working days', isCorrect:false }
+        { th:'แจ้งหน่วยงานกำกับดูแลภายใน 24 ชั่วโมงหลังพบเหตุ', en:'Notify the regulator within 24 hours of discovery', isCorrect:false },
+        { th:'แจ้งหน่วยงานกำกับดูแลภายใน 48 ชั่วโมงหลังพบเหตุ', en:'Notify the regulator within 48 hours of discovery', isCorrect:false },
+        { th:'แจ้งสำนักงานคุ้มครองข้อมูลภายใน 72 ชั่วโมงนับแต่ทราบเหตุ', en:'Notify the PDPC within 72 hours of becoming aware', isCorrect:true },
+        { th:'แจ้งหน่วยงานกำกับดูแลภายใน 7 วันทำการหลังพบเหตุ', en:'Notify the regulator within 7 working days', isCorrect:false }
       ],
       expTh:'ตามกฎหมาย PDPA หากข้อมูลส่วนบุคคลรั่วไหลและมีความเสี่ยง ต้องแจ้ง สคส. ภายใน 72 ชั่วโมง', expEn:'Under PDPA, risky data breaches must be reported to the PDPC within 72 hours.', ref:'การรับมือเหตุข้อมูลรั่วไหล (Data Breach Incident Response)' },
     
@@ -1098,10 +1098,10 @@
       qTh:'ตำรวจโทรศัพท์มาขอข้อมูลประวัติการผ่อนรถของลูกค้า โดยไม่มีหมายศาลหรือเอกสารราชการมาแสดง บริษัทควรเปิดเผยข้อมูลหรือไม่?',
       qEn:'Police call asking for a client\'s loan history without a warrant or official document. Should the company disclose the data?',
       choices:[
-        { th:'เปิดเผยทันทีเพราะเป็นตำรวจ', en:'Disclose immediately since it\'s the police', isCorrect:false },
-        { th:'ปฏิเสธจนกว่าเจ้าหน้าที่จะมีหนังสือราชการหรือหมายศาลที่ถูกต้องมาแสดง', en:'Refuse until a valid official letter or court warrant is shown', isCorrect:true },
-        { th:'เปิดเผยเฉพาะชื่อและนามสกุลเท่านั้น', en:'Disclose only the full name', isCorrect:false },
-        { th:'โอนสายให้ฝ่ายขายเป็นคนตอบ', en:'Transfer to Sales to answer', isCorrect:false }
+        { th:'เปิดเผยข้อมูลให้ทันทีเพราะผู้ติดต่อแจ้งว่าเป็นตำรวจ', en:'Disclose right away since the caller claims to be police', isCorrect:false },
+        { th:'ปฏิเสธจนกว่าจะมีหนังสือราชการหรือหมายศาลที่ถูกต้องมาแสดง', en:'Refuse until a valid official letter or court warrant is shown', isCorrect:true },
+        { th:'เปิดเผยเฉพาะชื่อและนามสกุลของลูกค้าให้ก่อน', en:'Disclose only the client\'s first and last name', isCorrect:false },
+        { th:'โอนสายให้ฝ่ายขายเป็นผู้รับผิดชอบตอบคำถามแทน', en:'Transfer the call to Sales to handle instead', isCorrect:false }
       ],
       expTh:'การส่งมอบข้อมูลลูกค้าให้หน่วยงานรัฐ ต้องมีเอกสารราชการหรือหมายศาลรองรับตามกฎหมายเสมอ', expEn:'Disclosing data to authorities always requires an official written request or warrant.', ref:'การเปิดเผยข้อมูลแก่รัฐ (Disclosure to Authorities)' },
     
@@ -1109,10 +1109,10 @@
       qTh:'ภายหลังที่ลูกค้าปิดบัญชีเช่าซื้อรถยนต์ไปแล้ว บริษัทต้องเก็บเอกสารแสดงตน (KYC/CDD) ไว้อย่างน้อยกี่ปีตามกฎหมาย?',
       qEn:'After a client closes their auto loan account, how many years must KYC/CDD records be kept by law?',
       choices:[
-        { th:'1 ปี (1 Year)', en:'1 Year', isCorrect:false },
-        { th:'3 ปี (3 Years)', en:'3 Years', isCorrect:false },
-        { th:'5 ปี นับจากวันที่ปิดบัญชีหรือยุติความสัมพันธ์', en:'5 Years from account closure/termination', isCorrect:true },
-        { th:'10 ปี (10 Years)', en:'10 Years', isCorrect:false }
+        { th:'เก็บเอกสารแสดงตนของลูกค้าไว้อย่างน้อย 1 ปีหลังปิดบัญชี', en:'Retain client KYC records for at least 1 year after closure', isCorrect:false },
+        { th:'เก็บเอกสารแสดงตนของลูกค้าไว้อย่างน้อย 3 ปีหลังปิดบัญชี', en:'Retain client KYC records for at least 3 years after closure', isCorrect:false },
+        { th:'เก็บเอกสารแสดงตนไว้อย่างน้อย 5 ปีนับจากวันปิดบัญชี', en:'Retain KYC records for at least 5 years from account closure', isCorrect:true },
+        { th:'เก็บเอกสารแสดงตนของลูกค้าไว้อย่างน้อย 10 ปีหลังปิดบัญชี', en:'Retain client KYC records for at least 10 years after closure', isCorrect:false }
       ],
       expTh:'ตามกฎหมาย ปปง. สถาบันการเงินและบริษัทเช่าซื้อต้องเก็บรักษาข้อมูลลูกค้าไว้อย่างน้อย 5 ปี', expEn:'Under AML law, financial/leasing institutions must retain client records for at least 5 years.', ref:'ระยะเวลาเก็บรักษาข้อมูล ปปง. (AML Record Retention)' },
     
@@ -1120,10 +1120,10 @@
       qTh:'บริษัทมีคอมพิวเตอร์ที่เก็บข้อมูลลูกค้าเสื่อมสภาพจำนวนมากต้องการนำไปทิ้ง วิธีการใดสอดคล้องกับนโยบาย ESG และความปลอดภัยข้อมูล?',
       qEn:'The company has many broken computers storing client data and wants to dispose of them. Which method aligns with ESG and data security policy?',
       choices:[
-        { th:'นำไปทิ้งรวมกับขยะทั่วไปหลังบริษัท', en:'Throw in general trash', isCorrect:false },
-        { th:'นำไปขายซาเล้งเพื่อเพิ่มรายได้บริษัท', en:'Sell to scrap collectors for cash', isCorrect:false },
-        { th:'ลบข้อมูล/ทำลายฮาร์ดดิสก์อย่างถูกวิธี และส่งกำจัดผ่านบริษัทรับรีไซเคิลขยะอิเล็กทรอนิกส์', en:'Securely wipe/destroy hard drives and send to certified e-waste recyclers', isCorrect:true },
-        { th:'บริจาคให้โรงเรียนทันทีโดยไม่ล้างเครื่อง', en:'Donate to schools without wiping data', isCorrect:false }
+        { th:'นำไปทิ้งรวมกับขยะทั่วไปด้านหลังอาคารสำนักงาน', en:'Dispose of them with the general office trash', isCorrect:false },
+        { th:'ขายให้ร้านรับซื้อของเก่าเพื่อเพิ่มรายได้ให้บริษัท', en:'Sell to a scrap dealer to bring in extra income', isCorrect:false },
+        { th:'ลบข้อมูลแล้วส่งให้ผู้รับรีไซเคิลที่ได้รับการรับรอง', en:'Wipe the data and send drives to a certified recycler', isCorrect:true },
+        { th:'บริจาคให้โรงเรียนไปใช้งานต่อโดยไม่ต้องล้างข้อมูลก่อน', en:'Donate the computers to schools without wiping data first', isCorrect:false }
       ],
       expTh:'นโยบายความยั่งยืน (ESG) และ PDPA ต้องดำเนินควบคู่กัน (ทำลายข้อมูลอย่างปลอดภัยและรักษาสิ่งแวดล้อม)', expEn:'ESG and PDPA together require secure data destruction followed by certified eco-recycling.', ref:'นโยบายความยั่งยืนด้านสิ่งแวดล้อม (ESG & IT Disposal)' },
     
@@ -1131,10 +1131,10 @@
       qTh:'เจ้าหน้าที่รัฐขอ "ค่าน้ำร้อนน้ำชา" แลกกับการเร่งออกใบอนุญาตจัดตั้งสาขาใหม่ บริษัทควรดำเนินการอย่างไร?',
       qEn:'A government official asks for "tea money" to expedite a new branch permit. What should the company do?',
       choices:[
-        { th:'ยอมจ่ายเพื่อให้เปิดสาขาได้ทันเวลา', en:'Pay it to open on time', isCorrect:false },
-        { th:'ปฏิเสธการจ่ายสินบนทุกรูปแบบ และดำเนินการตามขั้นตอนกฎหมาย', en:'Refuse all bribes and proceed through legal channels', isCorrect:true },
-        { th:'ต่อรองราคาให้ลดลง', en:'Negotiate the price down', isCorrect:false },
-        { th:'ให้ของขวัญราคาแพงแทนเงินสด', en:'Give an expensive gift instead of cash', isCorrect:false }
+        { th:'ยอมจ่ายค่าน้ำร้อนน้ำชาเพื่อให้เปิดสาขาได้ตามกำหนดเวลา', en:'Pay the tea money to keep the branch opening on schedule', isCorrect:false },
+        { th:'ปฏิเสธการจ่ายสินบนทุกรูปแบบและดำเนินการตามขั้นตอนของกฎหมาย', en:'Refuse all bribes and proceed strictly through legal channels', isCorrect:true },
+        { th:'ลองต่อรองให้เจ้าหน้าที่ลดจำนวนเงินที่เรียกร้องลง', en:'Try negotiating the official down to a smaller amount', isCorrect:false },
+        { th:'มอบของขวัญราคาแพงให้แทนการจ่ายเป็นเงินสด', en:'Offer an expensive gift in place of cash', isCorrect:false }
       ],
       expTh:'บริษัทไม่มีนโยบายจ่ายสินบนแก่เจ้าหน้าที่รัฐเพื่ออำนวยความสะดวกทุกกรณี', expEn:'The company strictly prohibits facilitation payments or bribes to officials.', ref:'การต่อต้านทุจริตคอร์รัปชัน (Anti-Corruption)' },
 
@@ -1142,10 +1142,10 @@
       qTh:'ผู้บริหารชาวต่างชาติของบริษัทพันธมิตรมาเยี่ยมชมกิจการ และมอบนาฬิกาหรูมูลค่าสูงให้เพื่อสานสัมพันธ์ ควรจัดการกับสถานการณ์อย่างไร?',
       qEn:'A foreign executive from a partner company visits and offers a luxury watch to build relations. How should this situation be handled?',
       choices:[
-        { th:'รับไว้เพื่อไม่ให้เสียมารยาท', en:'Accept to avoid being impolite', isCorrect:false },
-        { th:'รับไว้แล้วนำไปจับฉลากแจกพนักงาน', en:'Accept and raffle to staff', isCorrect:false },
-        { th:'ปฏิเสธอย่างสุภาพพร้อมอธิบายถึงนโยบาย No Gift Policy ของบริษัท', en:'Politely decline and explain the company\'s No Gift Policy', isCorrect:true },
-        { th:'ให้ผู้ติดตามเป็นคนรับแทน', en:'Let an assistant accept it instead', isCorrect:false }
+        { th:'รับไว้ก่อนเพื่อไม่ให้เสียมารยาทต่อแขกผู้มาเยือน', en:'Accept it first to avoid seeming impolite to the guest', isCorrect:false },
+        { th:'รับไว้แล้วนำมาจับฉลากแจกให้พนักงานในทีมทุกคน', en:'Accept it and raffle it off among the team afterward', isCorrect:false },
+        { th:'ปฏิเสธอย่างสุภาพและอธิบายนโยบาย No Gift Policy ของบริษัท', en:'Politely decline and explain the company\'s No Gift Policy', isCorrect:true },
+        { th:'ให้ผู้ติดตามหรือผู้ช่วยรับของขวัญไว้แทนตนเอง', en:'Have an assistant accept the gift on their behalf instead', isCorrect:false }
       ],
       expTh:'ควรปฏิเสธอย่างสุภาพและสื่อสารให้นโยบาย No Gift Policy ขององค์กรเป็นที่รับทราบ', expEn:'Politely refuse and communicate the organization\'s No Gift Policy.', ref:'การรับของขวัญมูลค่าสูง (High-Value Gifts)' },
 
@@ -1153,10 +1153,10 @@
       qTh:'คุณทราบข้อมูลว่าไตรมาสนี้บริษัทมีกำไรพุ่งสูงมาก ก่อนที่ข่าวจะถูกเปิดเผยต่อสาธารณะ คุณจะสามารถซื้อหุ้นบริษัทได้เมื่อใด?',
       qEn:'You know this quarter\'s profits are extremely high, before the news is publicly disclosed. When can you buy company shares?',
       choices:[
-        { th:'ซื้อได้ทันทีก่อนที่ข่าวจะออก', en:'Immediately before the news breaks', isCorrect:false },
-        { th:'ซื้อได้หลังจากบริษัทประกาศงบการเงินต่อสาธารณะไปแล้ว 1 วัน (พ้น Blackout Period)', en:'1 day after public disclosure (post-Blackout Period)', isCorrect:true },
-        { th:'ซื้อได้ถ้าให้ญาติเป็นคนซื้อแทน', en:'Yes, if a relative buys instead', isCorrect:false },
-        { th:'ซื้อได้เฉพาะวันหยุดเสาร์อาทิตย์', en:'Only on weekends', isCorrect:false }
+        { th:'ซื้อหุ้นได้ทันทีก่อนที่ข่าวกำไรจะถูกประกาศต่อสาธารณะ', en:'Buy shares right away, before the profit news is announced', isCorrect:false },
+        { th:'ซื้อหุ้นได้หลังประกาศงบการเงินต่อสาธารณะไปแล้ว 1 วัน', en:'Buy shares 1 day after the financial results are made public', isCorrect:true },
+        { th:'ซื้อหุ้นได้หากให้ญาติสนิทเป็นผู้ซื้อแทนตนเอง', en:'Buy shares indirectly by having a close relative purchase instead', isCorrect:false },
+        { th:'ซื้อหุ้นได้เฉพาะในช่วงวันหยุดเสาร์อาทิตย์เท่านั้น', en:'Buy shares only during the Saturday-Sunday weekend window', isCorrect:false }
       ],
       expTh:'นโยบายป้องกันการใช้ข้อมูลภายในกำหนดให้งดการซื้อขายหุ้น 30 วันก่อนงบออก และ 1 วันหลังงบออก', expEn:'The blackout period prohibits trading 30 days before and 1 day after financial disclosure.', ref:'การใช้ข้อมูลภายใน (Insider Trading & Blackout Period)' },
 
@@ -1164,10 +1164,10 @@
       qTh:'เซลส์เต็นท์รถขอร้องให้เจ้าหน้าที่ประเมินราคารถตีราคาให้สูงกว่าราคาตลาด เพื่อให้ลูกค้าจัดไฟแนนซ์ผ่านง่ายๆ เจ้าหน้าที่ประเมินราคาควรทำอย่างไร?',
       qEn:'A dealer asks the appraiser to inflate a car\'s value above market price to ensure loan approval. What should the appraiser do?',
       choices:[
-        { th:'ประเมินตามคำขอเพื่อเพิ่มยอดสินเชื่อ', en:'Comply to boost loan volume', isCorrect:false },
-        { th:'ปฏิเสธและทำการประเมินอย่างเที่ยงธรรมตามเกณฑ์มาตรฐานความเสี่ยง', en:'Refuse and strictly evaluate based on standard risk criteria', isCorrect:true },
-        { th:'ตีราคาสูงขึ้นเล็กน้อยเพื่อให้วิน-วิน', en:'Inflate slightly for a "win-win"', isCorrect:false },
-        { th:'ขอส่วนแบ่งค่าคอมมิชชันแลกกับการตีราคาสูง', en:'Ask for a commission cut in exchange', isCorrect:false }
+        { th:'ประเมินราคาตามที่เซลส์ขอเพื่อช่วยเพิ่มยอดอนุมัติสินเชื่อ', en:'Appraise as the dealer asks, to help boost loan approvals', isCorrect:false },
+        { th:'ปฏิเสธและประเมินอย่างเที่ยงธรรมตามเกณฑ์ความเสี่ยงมาตรฐาน', en:'Refuse and appraise strictly per standard risk criteria', isCorrect:true },
+        { th:'ปรับราคาขึ้นเล็กน้อยเพื่อให้ทั้งสองฝ่ายพอใจร่วมกัน', en:'Inflate the value slightly so both sides come out ahead', isCorrect:false },
+        { th:'ขอแบ่งค่าคอมมิชชันจากเซลส์เป็นการแลกเปลี่ยน', en:'Ask the dealer for a cut of commission in exchange', isCorrect:false }
       ],
       expTh:'การประเมินราคาต้องโปร่งใส อิงราคาตลาด และปฏิบัติตามกฎเกณฑ์การบริหารความเสี่ยงอย่างเคร่งครัด', expEn:'Appraisals must be transparent, market-based, and strictly follow risk management policy.', ref:'การบริหารความเสี่ยง (Credit Risk & Fair Appraisal)' },
 
@@ -1175,10 +1175,10 @@
       qTh:'บริษัทคู่แข่งมาแอบคุยกับคุณในงานสัมมนา เพื่อเสนอให้ "ฮั้วราคา" กำหนดดอกเบี้ยเช่าซื้อเท่ากันเพื่อเลี่ยงการตัดราคา คุณควรจัดการอย่างไร?',
       qEn:'A competitor at a seminar suggests "price-fixing" (interest rate fixing) to avoid price wars. How should you handle this?',
       choices:[
-        { th:'ตกลงในหลักการเพื่อลดการตัดราคา', en:'Agree in principle to reduce price wars', isCorrect:false },
-        { th:'ปฏิเสธทันทีและแสดงจุดยืนว่าบริษัทแข่งขันอย่างเป็นธรรมตามกฎหมาย', en:'Refuse immediately and state the company competes fairly under the law', isCorrect:true },
-        { th:'นำเรื่องไปเสนอผู้จัดการให้ตัดสินใจ', en:'Take it to the manager to decide', isCorrect:false },
-        { th:'ขอคุยรายละเอียดเพิ่มเติมหลังงาน', en:'Ask to discuss further after the event', isCorrect:false }
+        { th:'ตกลงรับหลักการไว้ก่อนเพื่อลดความเสี่ยงจากการตัดราคา', en:'Tentatively agree in principle to avoid a price war', isCorrect:false },
+        { th:'ปฏิเสธทันทีและยืนยันว่าบริษัทแข่งขันอย่างเป็นธรรม', en:'Refuse immediately and affirm the company competes fairly', isCorrect:true },
+        { th:'รับเรื่องไว้ก่อนแล้วนำไปเสนอให้ผู้จัดการตัดสินใจ', en:'Note the offer and pass the decision up to a manager', isCorrect:false },
+        { th:'ขอนัดคุยรายละเอียดของข้อเสนอเพิ่มเติมหลังงานจบ', en:'Arrange to discuss the proposal further after the event', isCorrect:false }
       ],
       expTh:'การฮั้วราคา (Price-fixing) ผิดกฎหมายแข่งขันทางการค้าและเป็นความผิดจรรยาบรรณร้ายแรง', expEn:'Price-fixing is illegal under competition law and is a serious ethics violation.', ref:'การปฏิบัติต่อคู่แข่ง (Fair Competition)' },
 
@@ -1186,10 +1186,10 @@
       qTh:'คุณเห็นหัวหน้างานทุจริตเงินบริษัท แต่กลัวถูกไล่ออกถ้าไปแจ้งความ นโยบายบริษัทคุ้มครองคุณอย่างไร?',
       qEn:'You see your boss embezzling company funds but fear retaliation if you report it. How does the policy protect you?',
       choices:[
-        { th:'ไม่มีมาตรการคุ้มครองที่ชัดเจน', en:'No clear protection', isCorrect:false },
-        { th:'แจ้งเบาะแสด้วยความสุจริต จะได้รับการคุ้มครองและปกปิดตัวตนอย่างเคร่งครัด', en:'Good-faith whistleblowers are strictly protected and kept anonymous', isCorrect:true },
-        { th:'จะได้รับการเลื่อนตำแหน่ง', en:'You will be promoted', isCorrect:false },
-        { th:'ต้องแจ้งผ่านตำรวจเท่านั้น บริษัทไม่ยุ่ง', en:'Must report to police only', isCorrect:false }
+        { th:'ไม่มีมาตรการคุ้มครองใดๆ ให้กับพนักงานที่แจ้งเบาะแส', en:'There is no real protection for employees who report it', isCorrect:false },
+        { th:'ผู้แจ้งเบาะแสโดยสุจริตจะได้รับการคุ้มครองและปกปิดตัวตนอย่างเคร่งครัด', en:'Good-faith whistleblowers are protected and kept strictly anonymous', isCorrect:true },
+        { th:'พนักงานที่แจ้งเบาะแสจะได้รับการเลื่อนตำแหน่งเป็นรางวัล', en:'The employee will be promoted as a reward for reporting', isCorrect:false },
+        { th:'ต้องแจ้งผ่านตำรวจเท่านั้น บริษัทจะไม่เข้ามาเกี่ยวข้อง', en:'Must report to police only — the company will not get involved', isCorrect:false }
       ],
       expTh:'บริษัทมีนโยบายคุ้มครองผู้แจ้งเบาะแส (Whistleblower Protection) ป้องกันการกลั่นแกล้งหรือเลิกจ้าง', expEn:'The company guarantees protection against retaliation for good-faith reporting.', ref:'การคุ้มครองผู้แจ้งเบาะแส (Whistleblower Protection)' },
 
@@ -1197,10 +1197,10 @@
       qTh:'คุณทราบว่าเพื่อนร่วมงานคนหนึ่งแอบนำข้อมูลเครดิตบูโรลูกค้าไปเช็คให้คนนอกบริษัท คุณควรทำอย่างไร?',
       qEn:'You know a colleague secretly checks customer credit bureau data for outsiders. What should you do?',
       choices:[
-        { th:'ทำเป็นไม่รู้ไม่เห็น', en:'Ignore it', isCorrect:false },
-        { th:'แจ้งเบาะแสผ่านช่องทาง Whistleblowing ทันที', en:'Report via the whistleblowing channel immediately', isCorrect:true },
-        { th:'ไปเตือนเพื่อนด้วยตัวเอง', en:'Warn the colleague personally', isCorrect:false },
-        { th:'ขอให้เพื่อนเช็คข้อมูลให้ตัวเองบ้าง', en:'Ask the colleague to check your own data too', isCorrect:false }
+        { th:'ทำเป็นไม่รู้ไม่เห็นเพราะไม่ใช่เรื่องของตนเอง', en:'Pretend not to notice since it\'s not your concern', isCorrect:false },
+        { th:'แจ้งเบาะแสผ่านช่องทาง Whistleblowing ของบริษัททันที', en:'Report it through the company\'s whistleblowing channel right away', isCorrect:true },
+        { th:'ไปเตือนเพื่อนร่วมงานคนนั้นด้วยตัวเองเป็นการส่วนตัว', en:'Warn the colleague directly and privately yourself', isCorrect:false },
+        { th:'ขอให้เพื่อนร่วมงานช่วยตรวจข้อมูลเครดิตของตนเองด้วย', en:'Ask the same colleague to check your own credit data too', isCorrect:false }
       ],
       expTh:'หากพบการทุจริตหรือฝ่าฝืนกฎหมาย ต้องแจ้งเบาะแสตามช่องทางที่บริษัทกำหนด', expEn:'If you witness fraud or legal violations, you must use the company\'s whistleblowing channel.', ref:'การแจ้งเบาะแส (Whistleblowing)' },
 
@@ -1208,10 +1208,10 @@
       qTh:'พนักงานจงใจสร้างหลักฐานเท็จและร้องเรียน (Whistleblowing) เพื่อกลั่นแกล้งให้หัวหน้างานถูกไล่ออก หากผลสอบสวนพบว่าเป็นเรื่องเท็จ พนักงานผู้นี้จะโดนลงโทษหรือไม่?',
       qEn:'An employee fabricates evidence and files a whistleblowing report to get their boss fired. If proven fabricated, will this employee face consequences?',
       choices:[
-        { th:'ไม่โดน เพราะถือว่าใช้ระบบแจ้งเบาะแส', en:'No, because they used the proper reporting system', isCorrect:false },
-        { th:'โดนลงโทษทางวินัยขั้นเด็ดขาด เนื่องจากแจ้งข้อมูลเป็นเท็จโดยเจตนาร้าย', en:'Yes, strict disciplinary action for malicious false reporting', isCorrect:true },
-        { th:'โดนแค่ตักเตือนด้วยวาจา', en:'Only a verbal warning', isCorrect:false },
-        { th:'ให้ไปขอโทษหัวหน้างานเป็นการส่วนตัวก็พอ', en:'Only required to apologize privately', isCorrect:false }
+        { th:'ไม่ถูกลงโทษเพราะถือว่าใช้สิทธิแจ้งเบาะแสตามระบบ', en:'No consequence, since they used the official reporting system', isCorrect:false },
+        { th:'ถูกลงโทษทางวินัยขั้นเด็ดขาดจากการแจ้งข้อมูลเท็จ', en:'Strict disciplinary action for filing a deliberately false report', isCorrect:true },
+        { th:'ได้รับเพียงคำตักเตือนด้วยวาจาจากฝ่ายบุคคล', en:'Receives only a verbal warning from the HR department', isCorrect:false },
+        { th:'เพียงแค่ต้องไปขอโทษหัวหน้างานเป็นการส่วนตัวก็พอ', en:'Only needs to apologize to the supervisor privately', isCorrect:false }
       ],
       expTh:'แม้บริษัทจะคุ้มครองผู้แจ้งเบาะแส แต่หากจงใจกลั่นแกล้งหรือให้ข้อมูลเท็จ จะถูกลงโทษทางวินัยร้ายแรง', expEn:'While genuine whistleblowers are protected, malicious false reporting results in strict disciplinary action.', ref:'การแจ้งเบาะแสที่เป็นเท็จ (False Whistleblowing)' },
 
@@ -1219,10 +1219,10 @@
       qTh:'บริษัทพบว่าคู่ค้าที่รับจ้างทวงถามหนี้มีการข่มขู่ทำร้ายร่างกายลูกค้า บริษัทควรมีมาตรการอย่างไร?',
       qEn:'The company finds that a contracted debt collection agency uses physical threats against clients. What measure should the company take?',
       choices:[
-        { th:'เพิกเฉยเพราะเป็นเรื่องของคู่ค้า', en:'Ignore it, it\'s the partner\'s business', isCorrect:false },
-        { th:'ตักเตือนและหากไม่แก้ไขต้องยุติการทำธุรกิจร่วมกัน', en:'Warn them, terminate the relationship if unresolved', isCorrect:true },
-        { th:'จ่ายโบนัสให้คู่ค้าเพราะทวงหนี้ได้เก่ง', en:'Pay a bonus for effective collection', isCorrect:false },
-        { th:'ช่วยคู่ค้าปิดบังข่าว', en:'Help cover up the news', isCorrect:false }
+        { th:'เพิกเฉยไว้เพราะเป็นเรื่องการดำเนินงานของคู่ค้าเอง', en:'Ignore it since it\'s the partner\'s own operational matter', isCorrect:false },
+        { th:'ตักเตือนคู่ค้า และยุติความร่วมมือหากยังไม่แก้ไข', en:'Warn the partner and end the relationship if unresolved', isCorrect:true },
+        { th:'มอบโบนัสพิเศษให้คู่ค้าเพราะสามารถทวงหนี้ได้อย่างมีประสิทธิภาพ', en:'Award the partner a bonus for collecting debts so effectively', isCorrect:false },
+        { th:'ช่วยคู่ค้าปิดบังเรื่องนี้ไม่ให้เป็นข่าวออกไป', en:'Help the partner keep the incident out of the news', isCorrect:false }
       ],
       expTh:'บริษัทจะไม่ทำธุรกิจกับคู่ค้าที่ละเมิดสิทธิมนุษยชนหรือฝ่าฝืนกฎหมาย', expEn:'The company will not do business with partners who violate human rights or the law.', ref:'นโยบายการปฏิบัติต่อคู่ค้า (Supplier Code of Conduct)' },
 
@@ -1230,10 +1230,10 @@
       qTh:'หากพนักงานพบว่าเพื่อนร่วมงานกำลังจะส่งข้อมูลลูกค้าให้ตำรวจโดยไม่มีหมายศาล ควรทำอย่างไรผ่านช่องทางแจ้งเบาะแส?',
       qEn:'If you see a colleague about to disclose data without a warrant, what should you do via the whistleblowing channel?',
       choices:[
-        { th:'แจ้งเบาะแสหรือทักท้วงทันทีเพื่อป้องกันการละเมิด PDPA ก่อนเกิดความเสียหาย', en:'Report or intervene immediately to prevent a PDPA violation before harm occurs', isCorrect:true },
-        { th:'ปล่อยผ่านเพราะไม่ใช่หน้าที่ตน', en:'Let it go, not your responsibility', isCorrect:false },
-        { th:'รอสถานการณ์ก่อนว่าตำรวจจะใช้ข้อมูลทำอะไร', en:'Wait to see what the police use it for', isCorrect:false },
-        { th:'บันทึกคลิปไว้ขู่เพื่อนร่วมงานภายหลัง', en:'Record a clip to use against the colleague later', isCorrect:false }
+        { th:'แจ้งเบาะแสหรือทักท้วงทันทีเพื่อป้องกันการละเมิด PDPA', en:'Report or intervene right away to prevent a PDPA breach', isCorrect:true },
+        { th:'ปล่อยผ่านไปก่อนเพราะไม่ถือว่าเป็นหน้าที่ของตน', en:'Let it pass for now since it isn\'t your responsibility', isCorrect:false },
+        { th:'รอดูสถานการณ์ก่อนว่าตำรวจจะนำข้อมูลไปใช้ทำอะไร', en:'Wait and see what the police plan to use the data for', isCorrect:false },
+        { th:'บันทึกคลิปเหตุการณ์ไว้เผื่อใช้ต่อรองกับเพื่อนร่วมงาน', en:'Record a clip of the incident to use as leverage later', isCorrect:false }
       ],
       expTh:'พนักงานทุกคนมีหน้าที่ป้องกันการละเมิดนโยบาย และสามารถแจ้งเบาะแสได้ทันทีเมื่อพบความเสี่ยง', expEn:'Every employee has a duty to prevent policy violations and may report risks immediately.', ref:'การแจ้งเบาะแสเชิงป้องกัน (Preventive Whistleblowing / PDPA)' },
 
@@ -1241,10 +1241,10 @@
       qTh:'บริษัทพี่ชายของคุณเข้าร่วมประมูลงานเป็นผู้รับเหมาปรับปรุงสาขาของบริษัท คุณควรปฏิบัติตนอย่างไร?',
       qEn:'Your brother\'s company is bidding to be the contractor for a branch renovation. How should you act?',
       choices:[
-        { th:'แอบช่วยพี่ชายร่างใบเสนอราคา', en:'Secretly help draft the bid', isCorrect:false },
-        { th:'รายงานความสัมพันธ์ให้ผู้บริหารทราบ และงดมีส่วนร่วมในการตัดสินใจ', en:'Report the relationship and recuse yourself from the decision', isCorrect:true },
-        { th:'ล็อกสเปกให้พี่ชายชนะ', en:'Rig the bid for him', isCorrect:false },
-        { th:'ไม่ต้องบอกใครถ้าพี่ชายเสนอราคาต่ำสุด', en:'Say nothing if his price is lowest', isCorrect:false }
+        { th:'แอบช่วยพี่ชายร่างใบเสนอราคาให้ดูน่าสนใจกว่าคู่แข่ง', en:'Secretly help your brother draft a more competitive bid', isCorrect:false },
+        { th:'รายงานความสัมพันธ์ให้ผู้บริหารทราบและงดมีส่วนร่วมตัดสินใจ', en:'Report the relationship to management and recuse from the decision', isCorrect:true },
+        { th:'ล็อกสเปกของงานประมูลให้พี่ชายมีโอกาสชนะมากขึ้น', en:'Tailor the bid specs to give your brother the advantage', isCorrect:false },
+        { th:'ไม่จำเป็นต้องบอกใครหากพี่ชายเสนอราคาต่ำที่สุดอยู่แล้ว', en:'No need to mention it if his price happens to be lowest anyway', isCorrect:false }
       ],
       expTh:'ผู้ที่มีส่วนได้เสียต้องเปิดเผยข้อมูลและห้ามเข้าร่วมกระบวนการตัดสินใจ', expEn:'Parties with a conflict of interest must disclose it and abstain from the decision-making process.', ref:'ความขัดแย้งทางผลประโยชน์ (Conflict of Interest)' },
 
@@ -1252,10 +1252,10 @@
       qTh:'บริษัทต้องการรับอดีตอธิบดีกรมการขนส่งทางบกเข้าเป็นกรรมการบริษัท โดยท่านเพิ่งเกษียณอายุมาได้ 1 ปี ตามนโยบาย บริษัทสามารถแต่งตั้งได้หรือไม่?',
       qEn:'The company wants to hire a former Transport Department Director-General as a board director. They retired 1 year ago. Can the company appoint them?',
       choices:[
-        { th:'ได้ เพราะมีเส้นสายที่เป็นประโยชน์', en:'Yes, useful connections', isCorrect:false },
-        { th:'ได้ หากผู้ถือหุ้นรายใหญ่เห็นชอบ', en:'Yes, if major shareholders agree', isCorrect:false },
-        { th:'ไม่ได้ ผู้สมัครต้องพ้นจากการเป็นเจ้าหน้าที่รัฐมาแล้วอย่างน้อย 2 ปี (Cooling-off Period)', en:'No, must have a 2-year cooling-off period from government service', isCorrect:true },
-        { th:'ไม่ได้ อดีตข้าราชการห้ามทำงานเอกชนตลอดชีวิต', en:'No, banned from private work for life', isCorrect:false }
+        { th:'แต่งตั้งได้ เพราะเส้นสายของท่านจะเป็นประโยชน์ต่อบริษัท', en:'Yes — their connections would benefit the company', isCorrect:false },
+        { th:'แต่งตั้งได้ หากผู้ถือหุ้นรายใหญ่ของบริษัทเห็นชอบด้วย', en:'Yes, as long as major shareholders approve the appointment', isCorrect:false },
+        { th:'แต่งตั้งไม่ได้ ต้องพ้นจากตำแหน่งราชการมาแล้วอย่างน้อย 2 ปีก่อน', en:'No — a 2-year cooling-off period from government service is required first', isCorrect:true },
+        { th:'แต่งตั้งไม่ได้ เพราะอดีตข้าราชการห้ามทำงานเอกชนตลอดชีวิต', en:'No — former officials are banned from private-sector work for life', isCorrect:false }
       ],
       expTh:'เพื่อป้องกันการใช้เส้นสาย นโยบายระบุว่าอดีตเจ้าหน้าที่รัฐระดับสูงต้องพ้นตำแหน่งอย่างน้อย 2 ปี', expEn:'To prevent undue influence, former high-ranking officials require a 2-year cooling-off period.', ref:'หลักเกณฑ์การจ้างอดีตเจ้าหน้าที่รัฐ (Hiring Government Officials)' },
 
@@ -1263,10 +1263,10 @@
       qTh:'ในการประชุมบอร์ดเพื่ออนุมัติซื้อซอฟต์แวร์ กรรมการท่านหนึ่งเป็นเจ้าของบริษัทซอฟต์แวร์นั้น กรรมการท่านนี้ต้องทำอย่างไร?',
       qEn:'In a board meeting to approve a software purchase, one director owns that software company. What must this director do?',
       choices:[
-        { th:'เข้าร่วมโหวตได้เพื่ออธิบายข้อดีของระบบ', en:'Vote and explain the system\'s benefits', isCorrect:false },
-        { th:'แจ้งให้ที่ประชุมทราบและงดออกเสียง รวมถึงต้องออกจากห้องประชุมในวาระนั้น', en:'Disclose, abstain from voting, and leave the room during this agenda item', isCorrect:true },
-        { th:'มอบอำนาจให้กรรมการท่านอื่นโหวตแทน', en:'Give proxy to another director to vote', isCorrect:false },
-        { th:'ปิดบังข้อมูลเพื่อป้องกันอคติ', en:'Hide the information to avoid bias', isCorrect:false }
+        { th:'เข้าร่วมโหวตได้ตามปกติเพื่อช่วยอธิบายข้อดีของระบบ', en:'Vote as usual and help explain the system\'s advantages', isCorrect:false },
+        { th:'แจ้งให้ที่ประชุมทราบ งดออกเสียง และออกจากห้องในวาระนั้น', en:'Disclose to the meeting, abstain, and leave the room for that agenda item', isCorrect:true },
+        { th:'มอบอำนาจให้กรรมการท่านอื่นโหวตแทนตนเองในวาระนี้', en:'Delegate voting power to another director for this item', isCorrect:false },
+        { th:'ปิดบังความสัมพันธ์ไว้ก่อนเพื่อไม่ให้เกิดอคติในที่ประชุม', en:'Withhold the relationship to avoid creating bias in the meeting', isCorrect:false }
       ],
       expTh:'กรรมการที่มีส่วนได้เสีย (Conflict of Interest) ต้องงดออกเสียงและไม่มีส่วนร่วมในการพิจารณา', expEn:'Directors with a conflict of interest must abstain and not participate in the deliberation.', ref:'ธุรกรรมที่เกี่ยวโยงกัน (Related Party Transactions)' },
 
@@ -1274,10 +1274,10 @@
       qTh:'เจ้าหน้าที่ฝ่ายจัดซื้อกำลังจะอนุมัติสัญญาเช่ารถยนต์กับเต็นท์รถ ซึ่งเป็นของคู่สมรสตนเอง โดยไม่ได้แจ้งใครล่วงหน้า การกระทำนี้ถือเป็นความผิดเรื่องใดและควรแก้ไขอย่างไร?',
       qEn:'A procurement officer is about to approve a vehicle leasing contract with a dealership owned by their spouse without disclosing it. What violation is this?',
       choices:[
-        { th:'คือเรื่องความขัดแย้งทางผลประโยชน์ ต้องเปิดเผยความสัมพันธ์และให้ผู้อื่นที่ไม่มีส่วนได้เสียเป็นผู้อนุมัติแทน', en:'Conflict of interest violation; must disclose the relationship and have an unconflicted person approve it', isCorrect:true },
-        { th:'ไม่ผิด เพราะราคาเช่าเท่ากับราคาตลาด', en:'No violation since the price matches market rate', isCorrect:false },
-        { th:'อนุญาตได้หากลูกค้าเสนอส่วนลดให้ 10%', en:'Allowed if the client offers a 10% discount', isCorrect:false },
-        { th:'ไม่ผิด ตราบใดที่เต็นท์รถไม่ได้เป็นพนักงานบริษัทเดียวกัน', en:'No violation, since the spouse isn\'t an employee of the same company', isCorrect:false }
+        { th:'ถือเป็นความขัดแย้งทางผลประโยชน์ ต้องเปิดเผยและถอนตัว', en:'A conflict of interest — must disclose it and recuse from approving', isCorrect:true },
+        { th:'ไม่ผิด เพราะราคาเช่าที่เสนอเท่ากับราคาตลาดทั่วไป', en:'Not a violation, since the lease price matches market rate', isCorrect:false },
+        { th:'อนุญาตให้ทำได้ หากเต็นท์รถยอมลดราคาให้อีก 10%', en:'Permitted if the dealership throws in an extra 10% discount', isCorrect:false },
+        { th:'ไม่ผิด ตราบใดที่คู่สมรสไม่ได้เป็นพนักงานบริษัทเดียวกัน', en:'Not a violation, as the spouse isn\'t employed by the same firm', isCorrect:false }
       ],
       expTh:'ความสัมพันธ์ทางครอบครัวกับคู่ค้าเป็นความขัดแย้งทางผลประโยชน์ ต้องเปิดเผยและถอนตัวจากการอนุมัติเสมอ', expEn:'A family relationship with a vendor is a conflict of interest and must always be disclosed.', ref:'ความขัดแย้งทางผลประโยชน์ (Conflict of Interest)' },
 
@@ -1285,10 +1285,10 @@
       qTh:'พนักงานสินเชื่อมีร้านขายอะไหล่รถยนต์เป็นธุรกิจส่วนตัว และมักแนะนำลูกค้าที่มาขอสินเชื่อให้ไปซื้ออะไหล่ที่ร้านตนเองเสมอ พฤติกรรมนี้ควรจัดการอย่างไรตามนโยบาย?',
       qEn:'A loan officer owns a side business selling auto parts and consistently steers loan clients toward purchasing from their own shop. How should this be handled?',
       choices:[
-        { th:'ไม่ผิด เพราะเป็นการหารายได้เสริมนอกเวลางาน', en:'Not a violation, since it\'s side income outside work hours', isCorrect:false },
-        { th:'ต้องแจ้งเปิดเผยธุรกิจส่วนตัวต่อบริษัท และหยุดพฤติกรรมใช้ตำแหน่งหน้าที่เอื้อประโยชน์', en:'Must disclose the personal business to the company and stop using their position to benefit it', isCorrect:true },
-        { th:'ถือว่าผิดเฉพาะถ้าร้านขายอะไหล่ปลอม', en:'Only a violation if the parts shop sells counterfeit goods', isCorrect:false },
-        { th:'ไม่ผิด หากบริษัทได้กำไรมากขึ้นจากการปล่อยสินเชื่อ', en:'No violation, as long as the company profits more', isCorrect:false }
+        { th:'ไม่ผิด เพราะถือเป็นรายได้เสริมที่ทำนอกเวลางาน', en:'No violation, since it\'s side income earned off the clock', isCorrect:false },
+        { th:'ต้องเปิดเผยธุรกิจส่วนตัวและหยุดเอื้อประโยชน์จากตำแหน่งงาน', en:'Must disclose the side business and stop leveraging the job for it', isCorrect:true },
+        { th:'ผิดเฉพาะในกรณีที่ร้านอะไหล่นั้นขายสินค้าปลอม', en:'Only a violation if the parts shop happens to sell counterfeits', isCorrect:false },
+        { th:'ไม่ผิด ตราบใดที่บริษัทยังได้กำไรจากยอดสินเชื่อเพิ่มขึ้น', en:'Not a violation, as long as the company\'s loan profits keep rising', isCorrect:false }
       ],
       expTh:'การใช้ตำแหน่งหน้าที่เอื้อประโยชน์ต่อธุรกิจส่วนตัวถือเป็นความขัดแย้งทางผลประโยชน์ ต้องเปิดเผยและหยุดพฤติกรรม', expEn:'Using one\'s position to benefit a personal business is a conflict of interest that must be disclosed and stopped.', ref:'ความขัดแย้งทางผลประโยชน์ (Conflict of Interest)' },
 
@@ -1296,10 +1296,10 @@
       qTh:'ลูกค้าคนหนึ่งค้างค่างวดรถยนต์หลายเดือน คุณจึงนำชื่อและป้ายทะเบียนไปโพสต์ประจานใน Facebook การกระทำนี้ส่งผลอย่างไร?',
       qEn:'A client defaults on their auto loan, so you post their name and license plate on Facebook to shame them. What is the consequence?',
       choices:[
-        { th:'เป็นเรื่องปกติในการทวงหนี้', en:'Normal practice for debt collection', isCorrect:false },
-        { th:'ได้รับคำชมจากหัวหน้า', en:'Praised by the boss', isCorrect:false },
-        { th:'ผิดกฎหมาย PDPA สิทธิมนุษยชน และนโยบายของบริษัทอย่างร้ายแรง', en:'A severe violation of PDPA, human rights, and company policy', isCorrect:true },
-        { th:'ทำให้ลูกค้ามาจ่ายเงินเร็วขึ้น', en:'Makes the client pay faster', isCorrect:false }
+        { th:'เป็นวิธีปฏิบัติทั่วไปที่ใช้กันในการทวงถามหนี้ค้างชำระ', en:'A normal practice commonly used in debt collection', isCorrect:false },
+        { th:'จะได้รับคำชื่นชมจากหัวหน้างานว่าทวงหนี้ได้ผล', en:'Praised by the supervisor for effective debt collection', isCorrect:false },
+        { th:'ผิดกฎหมาย PDPA สิทธิมนุษยชน และนโยบายบริษัทอย่างร้ายแรง', en:'A severe breach of PDPA, human rights, and company policy', isCorrect:true },
+        { th:'ช่วยกระตุ้นให้ลูกค้ารีบนำเงินมาชำระได้เร็วขึ้น', en:'Helps pressure the client into paying back sooner', isCorrect:false }
       ],
       expTh:'การนำข้อมูลลูกค้าไปเผยแพร่สาธารณะเป็นการละเมิดความเป็นส่วนตัวร้ายแรง', expEn:'Publicly exposing client data is a severe data privacy violation.', ref:'การสื่อสารสาธารณะและ PDPA (Public Comms & PDPA)' },
 
@@ -1307,10 +1307,10 @@
       qTh:'ลูกค้าถามเรื่องการอนุมัติสินเชื่อ คุณจึงตอบว่า "ผ่าน 100% แน่นอน" ทั้งที่ยังไม่ได้ตรวจเช็คเครดิตบูโร การสื่อสารนี้ผิดหลักจรรยาบรรณข้อใด?',
       qEn:'A client asks about their loan approval. You say "100% approved" before checking the credit bureau. Which ethical code is violated?',
       choices:[
-        { th:'ไม่ผิด เป็นเทคนิคการขาย', en:'No violation, just a sales technique', isCorrect:false },
-        { th:'ผิด เพราะให้ข้อมูลที่เกินจริงและอาจทำให้ลูกค้าเข้าใจผิด', en:'Violates fair dealing by exaggerating', isCorrect:true },
-        { th:'ผิด เพราะไม่ได้ให้เพื่อนร่วมงานช่วยยืนยัน', en:'Violates team communication protocol', isCorrect:false },
-        { th:'ผิด เพราะพูดเสียงดังเกินไป', en:'Violates office etiquette', isCorrect:false }
+        { th:'ไม่ผิด เพราะถือเป็นเทคนิคการพูดเพื่อปิดการขาย', en:'No violation — it\'s simply a sales closing technique', isCorrect:false },
+        { th:'ผิด เพราะให้ข้อมูลเกินจริงจนอาจทำให้ลูกค้าเข้าใจผิด', en:'A violation — the exaggerated claim could mislead the client', isCorrect:true },
+        { th:'ผิด เพราะไม่ได้ให้เพื่อนร่วมทีมช่วยยืนยันข้อมูลก่อน', en:'A violation of internal team confirmation protocol', isCorrect:false },
+        { th:'ผิด เพราะพูดด้วยน้ำเสียงดังเกินไปต่อหน้าลูกค้า', en:'A violation of office etiquette for speaking too loudly', isCorrect:false }
       ],
       expTh:'ต้องให้ข้อมูลที่ถูกต้องและไม่กล่าวเกินจริงแก่ลูกค้า', expEn:'Must provide accurate, non-exaggerated information to clients.', ref:'จรรยาบรรณต่อลูกค้า (Customer Responsibility / Fair Dealing)' },
 
@@ -1318,10 +1318,10 @@
       qTh:'เจ้าหน้าที่ฝ่ายเร่งรัดหนี้สินโทรศัพท์ไปหาลูกค้าด้วยถ้อยคำรุนแรงในเวลาเที่ยงคืน เพื่อกดดันให้จ่ายหนี้ พฤติกรรมนี้ผิดนโยบายใดและบริษัทควรดำเนินการอย่างไร?',
       qEn:'A collections officer calls a client at midnight using threatening language to pressure payment. Which policy is violated and what should the company do?',
       choices:[
-        { th:'ไม่ผิด เพราะลูกค้าค้างชำระหนี้จริง', en:'No violation since the client genuinely defaulted', isCorrect:false },
-        { th:'ผิดนโยบาย Fair Treatment ต้องลงโทษทางวินัยและทบทวนกระบวนการทวงถามหนี้ให้เป็นไปตามกฎหมาย', en:'Violates Fair Treatment policy; requires disciplinary action and review of debt collection processes', isCorrect:true },
-        { th:'ผิดเล็กน้อย แค่ตักเตือนด้วยวาจาก็พอ', en:'A minor issue; a verbal warning suffices', isCorrect:false },
-        { th:'ไม่ผิด ตราบใดที่ลูกค้าไม่ได้ไปร้องเรียน', en:'No violation, as long as the client doesn\'t file a complaint', isCorrect:false }
+        { th:'ไม่ผิด เพราะลูกค้ารายนี้ค้างชำระหนี้อยู่จริง', en:'No violation since the client genuinely is in default', isCorrect:false },
+        { th:'ผิดนโยบาย Fair Treatment ต้องลงโทษทางวินัยและทบทวนวิธีทวงหนี้', en:'Violates Fair Treatment — requires discipline and a policy review', isCorrect:true },
+        { th:'ผิดเล็กน้อยเท่านั้น เพียงตักเตือนด้วยวาจาก็เพียงพอ', en:'Only a minor issue; a verbal warning is enough', isCorrect:false },
+        { th:'ไม่ผิด ตราบใดที่ลูกค้ารายนั้นไม่ได้ยื่นเรื่องร้องเรียน', en:'No violation, as long as the client never files a complaint', isCorrect:false }
       ],
       expTh:'การติดตามทวงถามหนี้ต้องเป็นไปตามกฎหมาย ห้ามใช้ถ้อยคำข่มขู่หรือกระทำการใดที่สร้างความเดือดร้อน', expEn:'Debt collection must comply with the law; threats or harassment are strictly prohibited.', ref:'การปฏิบัติต่อลูกค้าอย่างเป็นธรรม (Fair Treatment)' },
 
@@ -1329,10 +1329,10 @@
       qTh:'พนักงานขายทำยอดไม่ถึงเป้าปลายเดือน จึงหลอกล่อผู้สูงอายุที่ไม่เข้าใจเงื่อนไขซับซ้อนให้ทำสัญญาเช่าซื้อที่มีดอกเบี้ยสูงกว่าที่ลูกค้าควรได้รับ โดยไม่อธิบายรายละเอียดให้ครบถ้วน การกระทำนี้ผิดหลักการใด?',
       qEn:'To hit month-end targets, a salesperson signs an elderly client onto a high-interest contract without fully explaining the complex terms. What principle is violated?',
       choices:[
-        { th:'ไม่ผิด เพราะลูกค้าเซ็นยินยอมในสัญญาแล้ว', en:'No violation since the client signed the contract', isCorrect:false },
-        { th:'ผิดหลัก Fair Treatment ต้องอธิบายเงื่อนไขให้เหมาะสมกับความเข้าใจของลูกค้า และเสนอเงื่อนไขที่เป็นธรรมตามคุณสมบัติจริง', en:'Violates Fair Treatment; must fully disclose terms suitable for the client\'s understanding and offer fair rates', isCorrect:true },
-        { th:'ผิดเล็กน้อย เพราะเป็นเรื่องปกติของการขาย', en:'A minor issue since it\'s normal sales practice', isCorrect:false },
-        { th:'ไม่ผิด ตราบใดที่บริษัทได้กำไรมากขึ้น', en:'No violation as long as the company profits more', isCorrect:false }
+        { th:'ไม่ผิด เพราะลูกค้าได้เซ็นยินยอมในสัญญาเรียบร้อยแล้ว', en:'No violation, since the client already signed the contract', isCorrect:false },
+        { th:'ผิดหลัก Fair Treatment ต้องอธิบายเงื่อนไขให้ชัดเจนและเป็นธรรม', en:'Violates Fair Treatment — must explain terms clearly and fairly', isCorrect:true },
+        { th:'ผิดเพียงเล็กน้อยเพราะเป็นแนวทางปกติของงานขาย', en:'Only a small issue since it\'s standard sales practice', isCorrect:false },
+        { th:'ไม่ผิด ตราบใดที่บริษัทได้รับผลกำไรเพิ่มขึ้นจากสัญญานี้', en:'No violation, as long as the company profits more from the deal', isCorrect:false }
       ],
       expTh:'ลูกค้าทุกกลุ่ม โดยเฉพาะกลุ่มเปราะบาง ต้องได้รับข้อมูลที่ครบถ้วน เข้าใจง่าย และเงื่อนไขเป็นธรรมตามความเสี่ยงจริง', expEn:'All clients, especially vulnerable groups, must receive full, understandable disclosure and fair terms.', ref:'การปฏิบัติต่อลูกค้าอย่างเป็นธรรม (Fair Treatment)' },
 
@@ -1340,10 +1340,10 @@
       qTh:'ลูกค้าร้องเรียนว่าได้รับการปฏิบัติไม่เป็นธรรมจากพนักงานสาขา แต่ผู้จัดการสาขากลับปิดบังเรื่องร้องเรียนนั้นไว้ เพราะกลัวกระทบยอดขายของสาขา การกระทำของผู้จัดการสาขาผิดหลักการใด?',
       qEn:'A client complains of unfair treatment by branch staff, but the branch manager hides the complaint fearing it will hurt branch sales figures. What principle is violated?',
       choices:[
-        { th:'ไม่ผิด เพราะผู้จัดการมีอำนาจตัดสินใจในสาขาของตน', en:'No violation since the manager has authority over their branch', isCorrect:false },
-        { th:'ผิดเล็กน้อย เพราะยอดขายสำคัญกว่า', en:'A minor issue, since sales targets take priority', isCorrect:false },
-        { th:'ผิดหลักการรับเรื่องร้องเรียน (Complaint Handling) ต้องมีกระบวนการบันทึกและส่งต่อข้อร้องเรียนอย่างเป็นธรรมและโปร่งใสเสมอ', en:'Violates Complaint Handling principles; complaints must be recorded and escalated transparently', isCorrect:true },
-        { th:'ไม่ผิด หากลูกค้าไม่ติดตามเรื่อง', en:'No violation if the client doesn\'t follow up', isCorrect:false }
+        { th:'ไม่ผิด เพราะผู้จัดการมีอำนาจตัดสินใจเต็มที่ในสาขาของตน', en:'No violation, since the manager has full authority over the branch', isCorrect:false },
+        { th:'ผิดเล็กน้อยเท่านั้น เพราะยอดขายของสาขาสำคัญกว่า', en:'Only a minor issue, since branch sales targets matter more', isCorrect:false },
+        { th:'ผิดหลักการรับเรื่องร้องเรียน ต้องบันทึกและส่งต่ออย่างโปร่งใส', en:'Violates Complaint Handling — must be logged and escalated transparently', isCorrect:true },
+        { th:'ไม่ผิด หากลูกค้ารายนั้นไม่ได้ติดตามทวงถามเรื่องต่อ', en:'No violation if the client doesn\'t follow up on the complaint', isCorrect:false }
       ],
       expTh:'ทุกข้อร้องเรียนของลูกค้าต้องได้รับการบันทึก พิจารณา และส่งต่อตามกระบวนการที่กำหนด โดยไม่คำนึงถึงผลกระทบต่อยอดขาย', expEn:'Every client complaint must be logged and escalated through the proper process, regardless of sales impact.', ref:'การจัดการข้อร้องเรียน (Complaint Handling / Fair Treatment)' },
 
@@ -1351,10 +1351,10 @@
       qTh:'เพื่อนร่วมงานขอยืม Password ของคุณเพื่อเข้าระบบอนุมัติสินเชื่อ เพราะของเขาถูกล็อก คุณควรทำอย่างไร?',
       qEn:'A colleague asks to use your password to access the loan approval system because theirs is locked. What should you do?',
       choices:[
-        { th:'ให้ยืมเพราะเป็นเรื่องด่วน', en:'Lend it because it\'s urgent', isCorrect:false },
-        { th:'ให้ยืม แต่ต้องยืนดูอยู่ด้วย', en:'Lend it but supervise while they use it', isCorrect:false },
-        { th:'ปฏิเสธและให้เพื่อนติดต่อฝ่าย IT', en:'Refuse and tell them to contact IT', isCorrect:true },
-        { th:'พิมพ์รหัสให้เพื่อนดูแทน', en:'Type the password for them', isCorrect:false }
+        { th:'ให้ยืมรหัสผ่านไปก่อนเพราะเป็นเรื่องเร่งด่วน', en:'Lend the password since the situation seems urgent', isCorrect:false },
+        { th:'ให้ยืมรหัสผ่านได้ แต่ต้องยืนเฝ้าดูตลอดการใช้งาน', en:'Lend it, but supervise closely the whole time it\'s used', isCorrect:false },
+        { th:'ปฏิเสธการให้รหัสผ่านและแนะนำให้ติดต่อฝ่าย IT แทน', en:'Refuse to share the password and direct them to contact IT', isCorrect:true },
+        { th:'พิมพ์รหัสผ่านให้เพื่อนร่วมงานดูแทนการให้ยืม', en:'Type the password in for them instead of handing it over', isCorrect:false }
       ],
       expTh:'ห้ามแชร์รหัสผ่านให้ผู้อื่นเด็ดขาดเพื่อความปลอดภัยของระบบ', expEn:'Sharing passwords is strictly prohibited for system security.', ref:'นโยบายความมั่นคงปลอดภัย IT (IT Security)' },
 
@@ -1362,10 +1362,10 @@
       qTh:'เพื่อนที่ทำงานขายประกันชีวิตขอให้คุณส่งรายชื่อลูกค้าสินเชื่อบริษัทไปให้เพื่อเสนอขายประกัน คุณสามารถส่งให้เพื่อนได้หรือไม่?',
       qEn:'A friend selling insurance asks you to send the company\'s loan client list so they can pitch insurance. Can you send the list?',
       choices:[
-        { th:'ได้ถ้าเพื่อนแบ่งค่าคอมมิชชันให้', en:'Yes, if the friend shares commissions', isCorrect:false },
-        { th:'ได้ เพราะเป็นการช่วยเหลือเพื่อน', en:'Yes, since it\'s helping a friend', isCorrect:false },
-        { th:'ไม่ได้ ข้อมูลลูกค้าเป็นความลับและผิดกฎหมาย PDPA', en:'No, client data is confidential and violates PDPA', isCorrect:true },
-        { th:'ได้แต่ต้องลบนามสกุลลูกค้าออก', en:'Yes, but remove the client\'s last name', isCorrect:false }
+        { th:'ส่งให้ได้ หากเพื่อนยินดีแบ่งค่าคอมมิชชันให้ตอบแทน', en:'Can send it if the friend agrees to share the commission', isCorrect:false },
+        { th:'ส่งให้ได้ เพราะถือเป็นการช่วยเหลือเพื่อนเท่านั้น', en:'Can send it, since it\'s simply helping out a friend', isCorrect:false },
+        { th:'ส่งให้ไม่ได้ ข้อมูลลูกค้าเป็นความลับและผิดกฎหมาย PDPA', en:'Cannot send it — client data is confidential and violates PDPA', isCorrect:true },
+        { th:'ส่งให้ได้ แต่ต้องตัดนามสกุลของลูกค้าออกก่อนส่ง', en:'Can send it as long as the client\'s last name is removed first', isCorrect:false }
       ],
       expTh:'ข้อมูลลูกค้าถือเป็นความลับสูงสุด ห้ามนำไปเปิดเผยเพื่อประโยชน์ส่วนตัว', expEn:'Customer data is highly confidential and cannot be shared for personal gain.', ref:'การรักษาความลับ (Confidentiality & PDPA)' },
 
@@ -1373,10 +1373,10 @@
       qTh:'พนักงานฝ่ายบัญชีถ่ายภาพหน้าจอรายงานผลประกอบการรายไตรมาสที่ยังไม่ประกาศต่อสาธารณะ แล้วส่งให้เพื่อนนอกบริษัทดูเล่นก่อนวันแถลงข่าวไม่กี่วัน การกระทำนี้เข้าข่ายความผิดร้ายแรงเรื่องใด?',
       qEn:'An accounting employee screenshots the not-yet-public quarterly results and casually sends them to a friend outside the company. What serious violation does this constitute?',
       choices:[
-        { th:'ไม่ผิด เพราะส่งให้เพื่อนสนิทเท่านั้น', en:'No violation since it\'s only a close friend', isCorrect:false },
-        { th:'ผิดเล็กน้อย เพราะถึงอย่างไรก็จะประกาศอยู่แล้วในไม่กี่วัน', en:'A minor issue since the data would be public soon anyway', isCorrect:false },
-        { th:'ผิดฐานเปิดเผยข้อมูลภายใน (Confidentiality) ซึ่งอาจนำไปสู่ความผิดฐาน Insider Trading หากเพื่อนนำไปใช้ซื้อขายหุ้น', en:'Violates confidentiality of inside information, which risks insider trading if the friend trades stocks', isCorrect:true },
-        { th:'ไม่ผิด หากเพื่อนสัญญาว่าจะไม่ไปบอกใครต่อ', en:'No violation if the friend promises not to share further', isCorrect:false }
+        { th:'ไม่ผิด เพราะส่งให้เฉพาะเพื่อนสนิทคนเดียวเท่านั้น', en:'No violation, since it was sent to one close friend only', isCorrect:false },
+        { th:'ผิดเล็กน้อยเท่านั้น เพราะข้อมูลจะถูกประกาศในไม่กี่วัน', en:'Only a minor issue, since the data goes public in a few days anyway', isCorrect:false },
+        { th:'ผิดฐานเปิดเผยข้อมูลภายใน อาจเข้าข่าย Insider Trading', en:'Violates inside-information confidentiality, risking insider trading', isCorrect:true },
+        { th:'ไม่ผิด หากเพื่อนสัญญาว่าจะไม่นำไปบอกใครต่อ', en:'No violation if the friend promises not to share it further', isCorrect:false }
       ],
       expTh:'ข้อมูลผลประกอบการที่ยังไม่เปิดเผยต่อสาธารณะถือเป็นความลับสูงสุด การเผยแพร่ก่อนกำหนดเสี่ยงต่อความผิดฐาน Insider Trading', expEn:'Undisclosed financial results are highly confidential; premature disclosure risks insider trading violations.', ref:'การรักษาความลับ/ข้อมูลภายใน (Confidentiality & Insider Information)' },
 
@@ -1384,10 +1384,10 @@
       qTh:'ทีม IT พบว่าพนักงานคนหนึ่งดาวน์โหลดฐานข้อมูลลูกค้าทั้งหมดลงแฟลชไดรฟ์ส่วนตัวก่อนวันลาออก โดยอ้างว่าจะเอาไปเป็น "ผลงาน" ไปสมัครงานใหม่ บริษัทควรดำเนินการอย่างไร?',
       qEn:'IT discovers an employee downloaded the entire client database to a personal flash drive just before resigning, claiming it\'s for their job-application portfolio. What should the company do?',
       choices:[
-        { th:'สอบสวนทันที สั่งให้ลบ/คืนข้อมูลทั้งหมด และพิจารณาดำเนินการทางกฎหมายฐานละเมิดความลับและ PDPA', en:'Investigate immediately, require deletion of all data, and consider legal action for confidentiality/PDPA breach', isCorrect:true },
-        { th:'อนุญาตได้ เพราะเป็นสิทธิส่วนบุคคลในการเก็บผลงาน', en:'Allow it, since keeping a portfolio is a personal right', isCorrect:false },
-        { th:'ตักเตือนเป็นลายลักษณ์อักษรแล้วปล่อยให้ลาออกตามปกติ', en:'Issue a written warning and let them resign normally', isCorrect:false },
-        { th:'ไม่ต้องทำอะไร เพราะพนักงานกำลังจะลาออกอยู่แล้ว', en:'Do nothing, since the employee is leaving anyway', isCorrect:false }
+        { th:'สอบสวนทันที สั่งคืนข้อมูลทั้งหมด และพิจารณาดำเนินคดีตามกฎหมาย', en:'Investigate at once, require data be returned, and weigh legal action', isCorrect:true },
+        { th:'อนุญาตได้ เพราะถือเป็นสิทธิส่วนบุคคลในการเก็บผลงานของตน', en:'Allow it, since keeping a personal portfolio is their own right', isCorrect:false },
+        { th:'ตักเตือนเป็นลายลักษณ์อักษรแล้วให้ลาออกไปตามกำหนดปกติ', en:'Issue a written warning and let the resignation proceed as normal', isCorrect:false },
+        { th:'ไม่ต้องดำเนินการอะไร เพราะพนักงานกำลังจะลาออกอยู่แล้ว', en:'Take no action at all, since the employee is leaving anyway', isCorrect:false }
       ],
       expTh:'ข้อมูลลูกค้าเป็นทรัพย์สินของบริษัทและเป็นความลับ การนำออกไปโดยไม่ได้รับอนุญาตถือเป็นการละเมิดร้ายแรงไม่ว่าจะมีเจตนาใด', expEn:'Client data is company property and confidential; unauthorized removal is a serious violation regardless of intent.', ref:'การรักษาความลับและความปลอดภัยข้อมูล (Confidentiality & Data Security)' },
 
@@ -1395,10 +1395,10 @@
       qTh:'ผู้บริหารระดับสูงสั่งให้เลขานุการส่งไฟล์สัญญาควบรวมกิจการที่เป็นความลับขั้นสูงสุด เข้าอีเมลส่วนตัว (ไม่ใช่อีเมลบริษัท) เพื่อความสะดวกในการทำงานนอกเวลา เลขานุการควรปฏิบัติอย่างไร?',
       qEn:'A senior executive instructs their secretary to send a top-secret merger contract via personal email (not the company account) for after-hours work. What should the secretary do?',
       choices:[
-        { th:'ทักท้วงและเสนอให้ใช้ช่องทางที่ปลอดภัยตามนโยบาย IT เช่น VPN หรืออีเมลบริษัทที่เข้ารหัส', en:'Raise the concern and propose secure channels like VPN or encrypted company email', isCorrect:true },
-        { th:'ทำตามคำสั่งทันที เพราะเป็นคำสั่งของผู้บริหารระดับสูง', en:'Comply immediately, since it\'s an order from senior management', isCorrect:false },
-        { th:'ส่งให้ แต่ตั้งรหัสผ่านไฟล์ก่อน', en:'Send it, but password-protect the file first', isCorrect:false },
-        { th:'ปฏิเสธเฉยๆ โดยไม่อธิบายเหตุผล', en:'Simply refuse without explaining why', isCorrect:false }
+        { th:'ทักท้วงและเสนอให้ใช้ช่องทางปลอดภัยตามนโยบาย IT เช่น VPN แทน', en:'Raise a concern and propose a secure channel like VPN instead', isCorrect:true },
+        { th:'ทำตามคำสั่งทันที เพราะเป็นคำสั่งจากผู้บริหารระดับสูง', en:'Comply right away, since it\'s an order from senior management', isCorrect:false },
+        { th:'ส่งไฟล์ให้ตามที่ขอ แต่ตั้งรหัสผ่านป้องกันไฟล์ไว้ก่อน', en:'Send the file as asked, but password-protect it first', isCorrect:false },
+        { th:'ปฏิเสธคำสั่งไปเฉยๆ โดยไม่อธิบายเหตุผลใดๆ', en:'Simply refuse the order without giving any explanation', isCorrect:false }
       ],
       expTh:'ข้อมูลขั้นความลับสูงสุดต้องส่งผ่านช่องทางที่บริษัทกำหนดและปลอดภัยเท่านั้น แม้คำสั่งจะมาจากผู้บริหารก็ต้องปฏิบัติตามนโยบายความปลอดภัยข้อมูล', expEn:'Top-secret data must only be transmitted through company-approved secure channels, regardless of who ordered it.', ref:'การรักษาความลับและความปลอดภัยข้อมูล (Confidentiality & Data Security)' }
   ];

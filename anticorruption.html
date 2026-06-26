@@ -345,7 +345,7 @@
       </div>
     </div>
     <div class="header-controls">
-      <button type="button" class="icon-btn" id="musicBtn" title="เปิด/ปิดเพลง" onclick="toggleMusic()">🔊</button>
+      <button type="button" class="icon-btn" id="musicBtn" title="เปิด/ปิดเพลง">🔊</button>
       <a href="index.html" class="icon-btn" title="กลับหน้าหลัก" style="text-decoration:none;font-size:.75rem;">🏠</a>
       <div class="lang-toggle" role="group" aria-label="เลือกภาษา / Language">
         <button type="button" class="lang-btn is-active" id="langThBtn">
@@ -654,10 +654,10 @@ var FULL_QUESTION_BANK = [
    qTh:'ข้อใดคือหลักการสำคัญของนโยบายต่อต้านทุจริตคอร์รัปชันของบริษัท?',
    qEn:'Which best describes the core principle of the company\'s anti-corruption policy?',
    choices:[
-     {th:'ยอมรับสินบนได้หากทำให้บริษัทได้ประโยชน์',en:'Accepting bribes is fine if it benefits the company',isCorrect:false},
-     {th:'ห้ามเรียก รับ และให้สินบนทุกรูปแบบ ไม่ว่าจะเป็นกับรัฐหรือเอกชน',en:'Never solicit, accept, or give any bribe — to public or private parties',isCorrect:true},
-     {th:'สินบนจำนวนน้อยๆ สามารถยอมรับได้',en:'Small bribes are acceptable',isCorrect:false},
-     {th:'ห้ามเฉพาะสินบนกับเจ้าหน้าที่รัฐเท่านั้น',en:'Only prohibits bribes to government officials',isCorrect:false}
+     {th:'ยอมรับสินบนได้หากทำให้บริษัทได้ประโยชน์ทางธุรกิจ',en:'Accepting bribes is fine if it benefits the business',isCorrect:false},
+     {th:'ห้ามเรียก รับ และให้สินบนทุกรูปแบบ ไม่ว่ารัฐหรือเอกชน',en:'Never solicit, accept, or give bribes — public or private',isCorrect:true},
+     {th:'สินบนจำนวนน้อยพอยอมรับได้หากไม่มีใครรู้เห็น',en:'Small bribes are fine as long as no one finds out',isCorrect:false},
+     {th:'ห้ามเฉพาะสินบนกับเจ้าหน้าที่รัฐ ภาคเอกชนไม่นับ',en:'Only prohibits bribes to officials, not private parties',isCorrect:false}
    ],
    expTh:'บริษัทใช้หลัก Zero Tolerance ไม่ยอมรับการทุจริตทุกรูปแบบ ไม่ว่าจะเป็นเจ้าหน้าที่รัฐหรือภาคเอกชน',
    expEn:'The company applies Zero Tolerance: no corruption of any kind, whether public or private sector.',
@@ -680,10 +680,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานได้รับซองเงินสดจากคู่ค้าในช่วงเทศกาลปีใหม่ ควรทำอย่างไร?',
    qEn:'An employee receives a cash envelope from a business partner during New Year. What should they do?',
    choices:[
-     {th:'รับไว้เพราะเป็นประเพณี',en:'Accept it as it\'s traditional',isCorrect:false},
-     {th:'รับและไม่บอกใคร',en:'Accept and tell no one',isCorrect:false},
-     {th:'ปฏิเสธทันที เพราะนโยบายห้ามรับเงินสดหรือสิ่งเทียบเท่าเงินสดเด็ดขาด',en:'Refuse immediately — cash or cash equivalents are strictly prohibited',isCorrect:true},
-     {th:'รับแล้วบริจาคให้การกุศล',en:'Accept and donate to charity',isCorrect:false}
+     {th:'รับไว้เพราะถือเป็นประเพณีที่ปฏิบัติกันมานาน',en:'Accept it, since it\'s a long-standing tradition',isCorrect:false},
+     {th:'รับไว้ก่อนโดยไม่บอกใครและไม่รายงานผู้บังคับบัญชา',en:'Accept it quietly without telling or reporting to anyone',isCorrect:false},
+     {th:'ปฏิเสธทันที เพราะนโยบายห้ามรับเงินสดหรือสิ่งเทียบเท่าเด็ดขาด',en:'Refuse immediately — cash and cash equivalents are strictly banned',isCorrect:true},
+     {th:'รับไว้แล้วนำไปบริจาคให้การกุศลโดยไม่บอกผู้บังคับบัญชา',en:'Accept it and donate to charity without telling a supervisor',isCorrect:false}
    ],
    expTh:'ห้ามรับเงินสดหรือสิ่งเทียบเท่าเงินสดโดยเด็ดขาด ไม่ว่าจะนำไปทำอะไรก็ตาม',
    expEn:'Cash or cash equivalents are strictly prohibited regardless of intended use.',
@@ -693,10 +693,10 @@ var FULL_QUESTION_BANK = [
    qTh:'เจ้าหน้าที่รัฐแห่งหนึ่งขอเงินจำนวนเล็กน้อยเพื่อ "เร่ง" การต่ออายุใบอนุญาต บริษัทควรทำอย่างไร?',
    qEn:'A government official asks for a small sum to "speed up" a license renewal. What should the company do?',
    choices:[
-     {th:'จ่ายเพราะเป็นเงินน้อยมาก',en:'Pay since the amount is small',isCorrect:false},
-     {th:'จ่ายผ่านบุคคลที่สาม',en:'Pay through a third party',isCorrect:false},
-     {th:'ปฏิเสธเพราะนโยบายบริษัทไม่อนุญาตให้จ่ายค่าอำนวยความสะดวกทุกกรณี',en:'Refuse — the company prohibits facilitation payments in all cases',isCorrect:true},
-     {th:'จ่ายแล้วบันทึกบัญชีเป็นค่าใช้จ่ายเบ็ดเตล็ด',en:'Pay and record as miscellaneous expense',isCorrect:false}
+     {th:'จ่ายไปก่อนเพราะเป็นเงินจำนวนเล็กน้อยไม่คุ้มจะปฏิเสธ',en:'Pay it, since the small amount isn\'t worth refusing over',isCorrect:false},
+     {th:'จ่ายผ่านบุคคลที่สามเพื่อไม่ให้เชื่อมโยงกับบริษัท',en:'Pay through a third party to keep distance from the company',isCorrect:false},
+     {th:'ปฏิเสธ เพราะนโยบายไม่อนุญาตค่าอำนวยความสะดวกทุกกรณี',en:'Refuse — facilitation payments are banned in every case',isCorrect:true},
+     {th:'จ่ายแล้วบันทึกบัญชีไว้เป็นค่าใช้จ่ายเบ็ดเตล็ดทั่วไป',en:'Pay it and record it as a miscellaneous expense',isCorrect:false}
    ],
    expTh:'ค่าอำนวยความสะดวก (Facilitation Payment) เป็นรูปแบบของสินบนที่บริษัทห้ามโดยเด็ดขาด',
    expEn:'Facilitation payments are a form of bribery strictly prohibited under company policy.',
@@ -706,10 +706,10 @@ var FULL_QUESTION_BANK = [
    qTh:'ช่องทางใดที่พนักงานสามารถใช้แจ้งเบาะแสการทุจริตไปยังประธานกรรมการตรวจสอบของบริษัทได้?',
    qEn:'Which channel can employees use to report corruption to the company\'s Audit Committee Chair?',
    choices:[
-     {th:'โพสต์บน Social Media สาธารณะ',en:'Post on public social media',isCorrect:false},
-     {th:'อีเมล prapasrp@yahoo.com หรือช่องทางสำนักเลขานุการบริษัท',en:'Email prapasrp@yahoo.com or via the Company Secretary',isCorrect:true},
-     {th:'แจ้งตำรวจโดยตรงเท่านั้น',en:'Report to police only',isCorrect:false},
-     {th:'บอกเพื่อนร่วมงานแล้วให้ช่วยแจ้งต่อ',en:'Tell a colleague and let them report',isCorrect:false}
+     {th:'โพสต์เรื่องราวลงบน Social Media ให้คนสาธารณะรับรู้',en:'Post the matter publicly on social media',isCorrect:false},
+     {th:'ใช้อีเมล prapasrp@yahoo.com หรือสำนักเลขานุการบริษัท',en:'Use the email prapasrp@yahoo.com or the Company Secretary',isCorrect:true},
+     {th:'ติดต่อแจ้งตำรวจโดยตรงโดยไม่ผ่านช่องทางบริษัท',en:'Contact the police directly, bypassing company channels',isCorrect:false},
+     {th:'บอกเพื่อนร่วมงานที่สนิทแล้วให้ช่วยแจ้งต่อแทนตน',en:'Tell a close colleague and have them report it instead',isCorrect:false}
    ],
    expTh:'ช่องทางแจ้งเบาะแสอย่างเป็นทางการคืออีเมลประธานกรรมการตรวจสอบหรือผ่านสำนักเลขานุการบริษัท',
    expEn:'Official whistleblowing channels include the Audit Committee Chair\'s email or the Company Secretary.',
@@ -719,10 +719,10 @@ var FULL_QUESTION_BANK = [
    qTh:'บริษัทจะดำเนินการอย่างไรกับพนักงานที่แจ้งเบาะแสการทุจริตด้วยความสุจริตใจ?',
    qEn:'How will the company treat an employee who reports corruption in good faith?',
    choices:[
-     {th:'ย้ายออกนอกหน่วยงานเพื่อป้องกันความขัดแย้ง',en:'Transfer out to avoid conflict',isCorrect:false},
-     {th:'ลดตำแหน่งหากการแจ้งเบาะแสกระทบยอดงาน',en:'Demote if reporting hurts performance',isCorrect:false},
-     {th:'คุ้มครองตัวตน ห้ามกลั่นแกล้ง และไม่ลงโทษผู้แจ้ง',en:'Protect identity, prohibit retaliation, and no punishment for reporting',isCorrect:true},
-     {th:'ไม่มีนโยบายชัดเจน แล้วแต่หัวหน้างาน',en:'No clear policy; up to the manager',isCorrect:false}
+     {th:'ย้ายออกนอกหน่วยงานเดิมเพื่อป้องกันความขัดแย้งในทีม',en:'Transfer them out of the unit to avoid team conflict',isCorrect:false},
+     {th:'ลดตำแหน่งลงหากการแจ้งเบาะแสกระทบยอดงานของหน่วยงาน',en:'Demote them if the report hurts the unit\'s performance',isCorrect:false},
+     {th:'คุ้มครองตัวตน ห้ามกลั่นแกล้ง และไม่ลงโทษผู้แจ้งเบาะแส',en:'Protect identity, ban retaliation, and never punish reporters',isCorrect:true},
+     {th:'ไม่มีนโยบายตายตัว ปล่อยให้หัวหน้างานตัดสินใจเอง',en:'No fixed policy; it\'s left to the manager\'s discretion',isCorrect:false}
    ],
    expTh:'บริษัทให้ความคุ้มครองผู้แจ้งเบาะแสอย่างเต็มที่ ไม่มีการลงโทษหรือกลั่นแกล้งผู้แจ้งด้วยความสุจริต',
    expEn:'The company fully protects good-faith whistleblowers from retaliation or punishment.',
@@ -732,10 +732,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานที่พบว่าตนมีความขัดแย้งทางผลประโยชน์กับธุรกรรมใดควรทำอย่างไรเป็นอันดับแรก?',
    qEn:'An employee who discovers they have a conflict of interest in a transaction should first:',
    choices:[
-     {th:'ดำเนินการต่อโดยพยายามเป็นกลาง',en:'Proceed while trying to be neutral',isCorrect:false},
-     {th:'แจ้งผู้บังคับบัญชาและถอนตัวจากการตัดสินใจที่เกี่ยวข้อง',en:'Disclose to supervisor and recuse themselves from the decision',isCorrect:true},
-     {th:'รอให้ธุรกรรมเสร็จก่อนแล้วค่อยบอก',en:'Wait until the transaction is done, then tell',isCorrect:false},
-     {th:'ให้เพื่อนร่วมงานที่ไว้ใจทำแทน',en:'Have a trusted colleague handle it instead',isCorrect:false}
+     {th:'ดำเนินการต่อไปตามปกติโดยพยายามวางตัวเป็นกลาง',en:'Proceed as usual while trying to stay neutral',isCorrect:false},
+     {th:'แจ้งผู้บังคับบัญชาและถอนตัวจากการตัดสินใจที่เกี่ยวข้อง',en:'Disclose to a supervisor and recuse from that decision',isCorrect:true},
+     {th:'รอให้ธุรกรรมเสร็จสิ้นไปก่อนแล้วจึงค่อยแจ้งทีหลัง',en:'Wait until the deal closes, then mention it afterward',isCorrect:false},
+     {th:'ให้เพื่อนร่วมงานที่ไว้ใจดำเนินการแทนตนโดยไม่แจ้งเหตุผล',en:'Have a trusted colleague handle it without explaining why',isCorrect:false}
    ],
    expTh:'เมื่อพบความขัดแย้งทางผลประโยชน์ต้องแจ้งทันทีและถอนตัวจากกระบวนการตัดสินใจ',
    expEn:'On discovering a conflict of interest, immediately disclose and recuse from the decision.',
@@ -745,10 +745,10 @@ var FULL_QUESTION_BANK = [
    qTh:'หลักเกณฑ์ "หยุดทำ" (Stop Test) ช่วยพนักงานอย่างไรเมื่อต้องตัดสินใจ?',
    qEn:'How does the "Stop Test" help employees when making decisions?',
    choices:[
-     {th:'ช่วยหาทางหลีกเลี่ยงกฎระเบียบ',en:'Helps find ways to bypass regulations',isCorrect:false},
-     {th:'ให้ถามตัวเองว่าการกระทำนั้นขัดกฎหมาย ขัดนโยบาย หรือเสียภาพลักษณ์ หากใช่ข้อใดข้อหนึ่งให้หยุดทันที',en:'Asks if the action is illegal, violates policy, or harms reputation — if yes to any, stop immediately',isCorrect:true},
-     {th:'ช่วยให้ทำงานเร็วขึ้น',en:'Helps work faster',isCorrect:false},
-     {th:'เป็นเครื่องมือสำหรับผู้บริหารเท่านั้น',en:'Only for management-level use',isCorrect:false}
+     {th:'ช่วยหาช่องทางผ่อนปรนเพื่อหลีกเลี่ยงกฎระเบียบที่ยุ่งยาก',en:'Helps find shortcuts around cumbersome regulations',isCorrect:false},
+     {th:'ถามตัวเองว่าขัดกฎหมาย นโยบาย หรือภาพลักษณ์ไหม ถ้าใช่ให้หยุด',en:'Ask if it breaks law, policy, or image — if yes, stop now',isCorrect:true},
+     {th:'ช่วยให้ขั้นตอนการทำงานเสร็จเร็วขึ้นกว่าปกติ',en:'Helps speed up the workflow compared to usual',isCorrect:false},
+     {th:'เป็นเครื่องมือที่สงวนไว้ใช้เฉพาะระดับผู้บริหารเท่านั้น',en:'A tool reserved for management-level use only',isCorrect:false}
    ],
    expTh:'Stop Test คือการถามตัวเองใน 3 ข้อ หากตอบใช่ข้อใดข้อหนึ่งต้องหยุดทำทันที',
    expEn:'The Stop Test asks 3 questions; if any answer is yes, stop the action immediately.',
@@ -758,10 +758,10 @@ var FULL_QUESTION_BANK = [
    qTh:'โทษสูงสุดสำหรับพนักงานที่กระทำการทุจริตในองค์กรคืออะไร?',
    qEn:'What is the maximum consequence for an employee who commits corruption?',
    choices:[
-     {th:'ภาคทัณฑ์และตักเตือนเป็นลายลักษณ์อักษร',en:'Probation and written warning',isCorrect:false},
-     {th:'ลดเงินเดือน 10%',en:'10% salary deduction',isCorrect:false},
-     {th:'ไล่ออกและอาจถูกดำเนินคดีทางแพ่งและอาญา',en:'Dismissal and possible civil and criminal prosecution',isCorrect:true},
-     {th:'พักงาน 30 วันโดยไม่ได้รับเงินเดือน',en:'30-day unpaid suspension',isCorrect:false}
+     {th:'ภาคทัณฑ์พร้อมตักเตือนเป็นลายลักษณ์อักษรอย่างเป็นทางการ',en:'Probation with a formal written warning on file',isCorrect:false},
+     {th:'ลดเงินเดือนลง 10% เป็นระยะเวลาตามที่กำหนด',en:'A 10% salary cut for a set period of time',isCorrect:false},
+     {th:'ไล่ออกและอาจถูกดำเนินคดีทั้งทางแพ่งและอาญา',en:'Dismissal, plus possible civil and criminal prosecution',isCorrect:true},
+     {th:'พักงาน 30 วันโดยไม่ได้รับเงินเดือนระหว่างพักงาน',en:'A 30-day suspension without pay during that period',isCorrect:false}
    ],
    expTh:'การทุจริตเป็นความผิดวินัยร้ายแรง มีโทษสูงสุดคือไล่ออก และอาจถูกดำเนินคดีทางแพ่งและอาญา',
    expEn:'Corruption is a serious disciplinary offense; maximum penalty is dismissal plus potential civil/criminal prosecution.',
@@ -771,10 +771,10 @@ var FULL_QUESTION_BANK = [
    qTh:'บริษัทจะดำเนินการอย่างไรกับพนักงานที่ปฏิเสธการจ่ายสินบนจนทำให้บริษัทเสียโอกาสทางธุรกิจ?',
    qEn:'What will the company do to an employee who refuses to pay a bribe even if it costs a business opportunity?',
    choices:[
-     {th:'ลงโทษเพราะทำให้บริษัทเสียโอกาส',en:'Punish for causing a missed opportunity',isCorrect:false},
-     {th:'ลดโบนัสประจำปี',en:'Reduce annual bonus',isCorrect:false},
-     {th:'ปกป้องและไม่ลงโทษ เพราะถือว่าปฏิบัติตามนโยบาย',en:'Protect and not punish — they followed company policy',isCorrect:true},
-     {th:'ส่งไปฝึกอบรมเพิ่มเติม',en:'Send for additional training',isCorrect:false}
+     {th:'ลงโทษพนักงานเพราะทำให้บริษัทเสียโอกาสทางธุรกิจ',en:'Punish the employee for costing the company an opportunity',isCorrect:false},
+     {th:'ลดโบนัสประจำปีลงเพื่อสะท้อนผลงานที่เสียไป',en:'Reduce the annual bonus to reflect the lost deal',isCorrect:false},
+     {th:'ปกป้องและไม่ลงโทษ เพราะถือว่าปฏิบัติตามนโยบายถูกต้อง',en:'Protect and not punish — they correctly followed policy',isCorrect:true},
+     {th:'ส่งไปฝึกอบรมเพิ่มเติมเพื่อปรับวิธีการเจรจาต่อรอง',en:'Send them for extra training on negotiation skills',isCorrect:false}
    ],
    expTh:'บริษัทจะไม่ลดตำแหน่งหรือลงโทษพนักงานที่ปฏิเสธการทุจริต แม้จะทำให้เสียโอกาสทางธุรกิจ',
    expEn:'The company will not demote or punish employees who refuse corruption, even at the cost of a business opportunity.',
@@ -784,10 +784,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานจะทำอย่างไรหากได้รับของขวัญที่มีมูลค่าเกิน 3,000 บาท และไม่สามารถปฏิเสธได้ทันท่วงที?',
    qEn:'What should an employee do if they receive a gift over 3,000 Baht and cannot immediately refuse?',
    choices:[
-     {th:'เก็บไว้ก่อนแล้วค่อยรายงานเมื่อสะดวก',en:'Keep it and report when convenient',isCorrect:false},
-     {th:'รายงานผู้บังคับบัญชาและบันทึกผ่านแบบฟอร์มที่กำหนดทันที',en:'Report to supervisor and fill in the required form immediately',isCorrect:true},
-     {th:'ให้ของขวัญนั้นแก่พนักงานคนอื่น',en:'Give it to another employee',isCorrect:false},
-     {th:'ส่งคืนทางไปรษณีย์โดยไม่ต้องแจ้งใคร',en:'Return it by post without notifying anyone',isCorrect:false}
+     {th:'เก็บไว้ก่อนแล้วค่อยรายงานในวันถัดไปเมื่อมีเวลา',en:'Keep it and report the next day whenever there\'s time',isCorrect:false},
+     {th:'รายงานผู้บังคับบัญชาและบันทึกผ่านแบบฟอร์มที่กำหนดทันที',en:'Report to a supervisor and file the required form at once',isCorrect:true},
+     {th:'ส่งต่อของขวัญนั้นให้พนักงานคนอื่นรับไว้แทน',en:'Pass the gift along to another employee instead',isCorrect:false},
+     {th:'ส่งคืนทางไปรษณีย์เองโดยไม่ต้องแจ้งใครก่อน',en:'Mail it back personally without notifying anyone first',isCorrect:false}
    ],
    expTh:'ต้องรายงานผู้บังคับบัญชาและบันทึกผ่านแบบฟอร์มที่กำหนดทันทีเมื่อรับของขวัญเกินมูลค่า',
    expEn:'Report to supervisor and complete the required form immediately upon receiving an over-limit gift.',
@@ -797,10 +797,10 @@ var FULL_QUESTION_BANK = [
    qTh:'น้องสาวของพนักงานฝ่ายจัดซื้อส่งใบเสนอราคาเพื่อขายอุปกรณ์สำนักงานให้บริษัท พนักงานควรปฏิบัติอย่างไร?',
    qEn:'A procurement employee\'s sister submits a quote to supply office equipment. What must the employee do?',
    choices:[
-     {th:'อนุมัติเพราะน้องสาวเสนอราคาต่ำสุด',en:'Approve since sister quoted the lowest price',isCorrect:false},
-     {th:'แจ้งความสัมพันธ์และถอนตัวจากกระบวนการจัดซื้อทั้งหมด',en:'Disclose the relationship and recuse from the entire procurement process',isCorrect:true},
-     {th:'ขอให้น้องสาวถอนใบเสนอราคา',en:'Ask sister to withdraw the quote',isCorrect:false},
-     {th:'ให้หัวหน้างานอนุมัติแทนโดยไม่ต้องแจ้งความสัมพันธ์',en:'Have supervisor approve without disclosing the relationship',isCorrect:false}
+     {th:'อนุมัติไปเลยเพราะน้องสาวเสนอราคาต่ำที่สุดในตลาด',en:'Approve it, since the sister quoted the market\'s lowest price',isCorrect:false},
+     {th:'แจ้งความสัมพันธ์และถอนตัวจากกระบวนการจัดซื้อทั้งหมด',en:'Disclose the relationship and recuse from the whole process',isCorrect:true},
+     {th:'ขอให้น้องสาวถอนใบเสนอราคาออกไปจากระบบ',en:'Ask the sister to withdraw her quote from the system',isCorrect:false},
+     {th:'ให้หัวหน้างานอนุมัติแทนโดยไม่ต้องพูดถึงความสัมพันธ์',en:'Let the supervisor approve without mentioning the relationship',isCorrect:false}
    ],
    expTh:'ความสัมพันธ์ครอบครัวกับคู่ค้าเป็น Conflict of Interest ต้องเปิดเผยและถอนตัวจากกระบวนการ',
    expEn:'Family relationship with a vendor is a conflict of interest; must disclose and recuse.',
@@ -810,10 +810,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานกำลังจะอนุมัติค่าใช้จ่ายที่น่าสงสัย แต่รู้สึกกดดันจากหัวหน้า ควรใช้ Stop Test อย่างไร?',
    qEn:'An employee is about to approve a suspicious expense under pressure from their boss. How should they apply the Stop Test?',
    choices:[
-     {th:'ทำตามหัวหน้าเพราะเป็นผู้บังคับบัญชา',en:'Follow the boss since they\'re superior',isCorrect:false},
-     {th:'ถามตัวเองว่าการอนุมัตินี้ขัดนโยบายหรือกฎหมายไหม ถ้าใช่ต้องปฏิเสธแม้ถูกกดดัน',en:'Ask if the approval violates policy or law; if yes, refuse even under pressure',isCorrect:true},
-     {th:'รออนุมัติแล้วรายงานภายหลัง',en:'Approve first and report later',isCorrect:false},
-     {th:'ขอให้เพื่อนร่วมงานอนุมัติแทน',en:'Ask a colleague to approve instead',isCorrect:false}
+     {th:'ทำตามที่หัวหน้าสั่งเพราะถือเป็นผู้บังคับบัญชาโดยตรง',en:'Follow the boss\'s order since they\'re the direct superior',isCorrect:false},
+     {th:'ถามตัวเองว่าขัดนโยบายหรือกฎหมายไหม ถ้าใช่ต้องปฏิเสธ',en:'Ask if it breaks policy or law; if yes, refuse regardless',isCorrect:true},
+     {th:'อนุมัติไปก่อนแล้วค่อยเขียนรายงานชี้แจงภายหลัง',en:'Approve it first and write a justification report later',isCorrect:false},
+     {th:'ขอให้เพื่อนร่วมงานคนอื่นเป็นผู้อนุมัติแทนตน',en:'Ask a different colleague to approve it on their behalf',isCorrect:false}
    ],
    expTh:'Stop Test ใช้ได้กับทุกสถานการณ์รวมถึงการถูกกดดัน หากมีข้อสงสัยต้องปฏิเสธและรายงาน',
    expEn:'The Stop Test applies in all situations including pressure; if in doubt, refuse and report.',
@@ -823,10 +823,10 @@ var FULL_QUESTION_BANK = [
    qTh:'นโยบายต่อต้านทุจริตของบริษัทครอบคลุมถึงพฤติกรรมของบุคคลใด?',
    qEn:'Who does the company\'s anti-corruption policy cover?',
    choices:[
-     {th:'เฉพาะผู้บริหารและกรรมการ',en:'Only executives and directors',isCorrect:false},
-     {th:'เฉพาะพนักงานที่มีอำนาจอนุมัติ',en:'Only employees with approval authority',isCorrect:false},
-     {th:'พนักงานทุกคน ทุกระดับ รวมถึงตัวแทนและคู่ค้าที่กระทำในนามบริษัท',en:'All employees at every level, including agents and partners acting on behalf of the company',isCorrect:true},
-     {th:'เฉพาะพนักงานที่ทำงานกับภาครัฐ',en:'Only employees dealing with the government sector',isCorrect:false}
+     {th:'ครอบคลุมเฉพาะผู้บริหารระดับสูงและคณะกรรมการบริษัท',en:'Only covers senior executives and the board of directors',isCorrect:false},
+     {th:'ครอบคลุมเฉพาะพนักงานที่มีอำนาจอนุมัติงบประมาณ',en:'Only covers employees with budget approval authority',isCorrect:false},
+     {th:'ครอบคลุมทุกระดับ รวมถึงตัวแทนและคู่ค้าที่ทำในนามบริษัท',en:'Covers every level, including agents acting for the company',isCorrect:true},
+     {th:'ครอบคลุมเฉพาะพนักงานที่ทำงานติดต่อกับภาครัฐโดยตรง',en:'Only covers employees who deal directly with government agencies',isCorrect:false}
    ],
    expTh:'นโยบายครอบคลุมทุกคนในองค์กร ไม่ว่าจะเป็นพนักงาน ผู้บริหาร หรือตัวแทนที่ทำหน้าที่แทนบริษัท',
    expEn:'Policy covers everyone — employees, management, and agents acting on the company\'s behalf.',
@@ -836,10 +836,10 @@ var FULL_QUESTION_BANK = [
    qTh:'การให้ของขวัญแก่เจ้าหน้าที่รัฐในรูปแบบใดที่นโยบายห้ามโดยเด็ดขาด?',
    qEn:'Which form of gift to a government official is absolutely prohibited by policy?',
    choices:[
-     {th:'ของที่ระลึกมูลค่า 500 บาทในวันประชุมประจำปี',en:'A 500 Baht souvenir at the annual meeting',isCorrect:false},
-     {th:'ดอกไม้ราคาไม่แพงในโอกาสทางการ',en:'Inexpensive flowers for an official occasion',isCorrect:false},
-     {th:'เงินสดหรือบัตรของขวัญ ไม่ว่าจะมูลค่าเท่าใด',en:'Cash or gift cards of any value',isCorrect:true},
-     {th:'ปฏิทินบริษัทที่มีโลโก้องค์กร',en:'A company-branded calendar',isCorrect:false}
+     {th:'ของที่ระลึกราคา 500 บาทที่แจกในวันประชุมประจำปี',en:'A 500 Baht souvenir handed out at the annual meeting',isCorrect:false},
+     {th:'ดอกไม้ราคาไม่แพงที่มอบให้ในโอกาสทางการ',en:'Inexpensive flowers given on an official occasion',isCorrect:false},
+     {th:'เงินสดหรือบัตรของขวัญ ไม่ว่าจะมีมูลค่าเท่าใดก็ตาม',en:'Cash or gift cards, regardless of the value involved',isCorrect:true},
+     {th:'ปฏิทินตั้งโต๊ะที่มีโลโก้ของบริษัทติดอยู่',en:'A desk calendar printed with the company\'s logo',isCorrect:false}
    ],
    expTh:'เงินสดและสิ่งเทียบเท่าเงินสดรวมถึงบัตรของขวัญเป็นสิ่งต้องห้ามโดยเด็ดขาดไม่ว่าจะมูลค่าเท่าใด',
    expEn:'Cash and cash equivalents including gift cards are absolutely prohibited regardless of value.',
@@ -849,10 +849,10 @@ var FULL_QUESTION_BANK = [
    qTh:'หากพนักงานไม่แน่ใจว่าพฤติกรรมใดพฤติกรรมหนึ่งเข้าข่ายทุจริตหรือไม่ ควรดำเนินการอย่างไร?',
    qEn:'If unsure whether an action constitutes corruption, what should an employee do?',
    choices:[
-     {th:'ทำไปก่อนแล้วรอดูผล',en:'Do it and wait to see the outcome',isCorrect:false},
-     {th:'ขอความเห็นจากเพื่อนร่วมงาน',en:'Ask a colleague for their opinion',isCorrect:false},
-     {th:'ใช้ Stop Test และปรึกษาฝ่าย Compliance หรือผู้บังคับบัญชาทันที',en:'Apply the Stop Test and consult Compliance or your supervisor immediately',isCorrect:true},
-     {th:'ค้นหาข้อมูลใน Internet',en:'Search for information online',isCorrect:false}
+     {th:'ทำไปก่อนตามปกติแล้วค่อยดูผลลัพธ์ที่เกิดขึ้น',en:'Go ahead as usual and wait to see what happens',isCorrect:false},
+     {th:'ขอความเห็นจากเพื่อนร่วมงานที่สนิทกันก่อนตัดสินใจ',en:'Ask a close colleague for their opinion before deciding',isCorrect:false},
+     {th:'ใช้ Stop Test และปรึกษาฝ่าย Compliance หรือหัวหน้างานทันที',en:'Apply the Stop Test and consult Compliance or a supervisor at once',isCorrect:true},
+     {th:'ค้นหาข้อมูลเพิ่มเติมด้วยตนเองทาง Internet ก่อน',en:'Search for more information online by themselves first',isCorrect:false}
    ],
    expTh:'เมื่อไม่แน่ใจต้องปรึกษาฝ่าย Compliance หรือผู้บังคับบัญชา และใช้ Stop Test เพื่อตัดสินใจ',
    expEn:'When in doubt, use the Stop Test and consult Compliance or your supervisor immediately.',
@@ -862,10 +862,10 @@ var FULL_QUESTION_BANK = [
    qTh:'ทำไมบริษัทจึงไม่อนุญาตให้จ่ายค่าอำนวยความสะดวกแม้จะเป็นเงินจำนวนน้อยมาก?',
    qEn:'Why does the company prohibit facilitation payments even when they are very small?',
    choices:[
-     {th:'เพราะทำให้ค่าใช้จ่ายรวมสูงขึ้น',en:'Because it increases total costs',isCorrect:false},
-     {th:'เพราะถือเป็นสินบนรูปแบบหนึ่งที่ผิดกฎหมายและขัดนโยบาย Zero Tolerance',en:'Because it is a form of bribery that violates the law and the Zero Tolerance policy',isCorrect:true},
-     {th:'เพราะยากต่อการบัญชี',en:'Because it\'s difficult to account for',isCorrect:false},
-     {th:'เพราะเจ้าหน้าที่รัฐไม่ควรรับเงิน',en:'Because officials should not accept money',isCorrect:false}
+     {th:'เพราะการจ่ายบ่อยๆ ทำให้ค่าใช้จ่ายรวมของบริษัทสูงขึ้น',en:'Because frequent payments raise the company\'s overall costs',isCorrect:false},
+     {th:'เพราะถือเป็นสินบนรูปแบบหนึ่งที่ขัดกฎหมายและ Zero Tolerance',en:'Because it\'s a form of bribery that breaks law and Zero Tolerance',isCorrect:true},
+     {th:'เพราะค่าใช้จ่ายลักษณะนี้ยากต่อการบันทึกบัญชี',en:'Because this type of expense is hard to record properly',isCorrect:false},
+     {th:'เพราะเจ้าหน้าที่รัฐไม่ควรรับเงินจากภาคเอกชนเลย',en:'Because officials shouldn\'t accept money from the private sector',isCorrect:false}
    ],
    expTh:'ค่าอำนวยความสะดวกคือสินบนรูปแบบหนึ่ง ขัดทั้งกฎหมายและหลัก Zero Tolerance ของบริษัท',
    expEn:'Facilitation payments are a form of bribery, violating both law and the Zero Tolerance policy.',
@@ -875,10 +875,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานมีเพื่อนสนิทที่เป็นเจ้าของบริษัทซัพพลายเออร์ที่กำลังจะเซ็นสัญญากับบริษัท พนักงานควรทำอย่างไร?',
    qEn:'An employee\'s close friend owns a supplier company about to sign a contract. What should the employee do?',
    choices:[
-     {th:'ช่วยเพื่อนเจรจาต่อรองราคาให้ได้สัญญา',en:'Help the friend negotiate to win the contract',isCorrect:false},
-     {th:'เปิดเผยความสัมพันธ์ต่อผู้บังคับบัญชาและงดเข้าร่วมกระบวนการตัดสินใจ',en:'Disclose the relationship and abstain from the decision process',isCorrect:true},
-     {th:'แนะนำให้เพื่อนเปลี่ยนชื่อบริษัท',en:'Advise the friend to change the company name',isCorrect:false},
-     {th:'ไม่ต้องแจ้งเพราะเป็นเพื่อนส่วนตัว ไม่ใช่ญาติ',en:'No need to disclose — it\'s a friend, not a relative',isCorrect:false}
+     {th:'ช่วยเพื่อนเจรจาต่อรองราคาเพื่อให้ได้สัญญาไปครอง',en:'Help the friend negotiate terms to help win the deal',isCorrect:false},
+     {th:'เปิดเผยความสัมพันธ์ต่อหัวหน้างานและงดเข้าร่วมตัดสินใจ',en:'Disclose the relationship and abstain from the decision',isCorrect:true},
+     {th:'แนะนำให้เพื่อนเปลี่ยนชื่อบริษัทเพื่อไม่ให้สืบทราบได้',en:'Suggest the friend rename the company to avoid detection',isCorrect:false},
+     {th:'ไม่ต้องแจ้งเพราะเป็นเพื่อนส่วนตัว ไม่ใช่ญาติทางสายเลือด',en:'No need to disclose — it\'s a friend, not blood family',isCorrect:false}
    ],
    expTh:'ความสัมพันธ์ส่วนตัวรวมถึงเพื่อนสนิทกับคู่ค้าเป็น Conflict of Interest ต้องเปิดเผยและถอนตัว',
    expEn:'Personal relationships including close friends with vendors are conflicts of interest and must be disclosed.',
@@ -888,10 +888,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานที่แจ้งเบาะแสการทุจริตโดยสุจริตใจจะได้รับผลกระทบอะไรจากบริษัท?',
    qEn:'What will happen to an employee who genuinely reports corruption in good faith?',
    choices:[
-     {th:'ถูกกลั่นแกล้งจากเพื่อนร่วมงาน',en:'Face bullying from colleagues',isCorrect:false},
-     {th:'ถูกย้ายออกจากหน่วยงาน',en:'Be transferred out of the department',isCorrect:false},
-     {th:'ได้รับการคุ้มครองจากบริษัท ไม่ถูกเลิกจ้างหรือลงโทษ',en:'Be protected by the company; no termination or punishment',isCorrect:true},
-     {th:'ต้องแบกรับความเสี่ยงทางกฎหมายเอง',en:'Bear legal risks on their own',isCorrect:false}
+     {th:'ถูกเพื่อนร่วมงานบางคนกลั่นแกล้งจนทำงานยากขึ้น',en:'Face bullying from some colleagues that makes work harder',isCorrect:false},
+     {th:'ถูกย้ายออกจากหน่วยงานเดิมไปประจำที่อื่น',en:'Be transferred out of their original department',isCorrect:false},
+     {th:'ได้รับการคุ้มครองจากบริษัท ไม่ถูกเลิกจ้างหรือลงโทษ',en:'Be protected by the company, with no dismissal or punishment',isCorrect:true},
+     {th:'ต้องแบกรับความเสี่ยงทางกฎหมายที่อาจเกิดขึ้นด้วยตนเอง',en:'Must bear any resulting legal risk entirely on their own',isCorrect:false}
    ],
    expTh:'บริษัทคุ้มครองผู้แจ้งเบาะแสด้วยความสุจริต ห้ามเลิกจ้าง ลงโทษ หรือกลั่นแกล้งทุกรูปแบบ',
    expEn:'Company protects good-faith reporters; dismissal, punishment, or bullying are prohibited.',
@@ -901,10 +901,10 @@ var FULL_QUESTION_BANK = [
    qTh:'ข้อใดไม่ใช่รูปแบบของการทุจริตที่นโยบายบริษัทครอบคลุม?',
    qEn:'Which is NOT a form of corruption covered by company policy?',
    choices:[
-     {th:'การให้สินบนเจ้าหน้าที่รัฐ',en:'Bribing government officials',isCorrect:false},
-     {th:'การรับของขวัญมูลค่าเกินกำหนด',en:'Accepting gifts above the allowed value',isCorrect:false},
-     {th:'การให้ข้อมูลผิดพลาดแก่ลูกค้าโดยไม่ตั้งใจ',en:'Accidentally giving incorrect information to a client',isCorrect:true},
-     {th:'การจ่ายค่าอำนวยความสะดวกแก่เจ้าหน้าที่',en:'Paying facilitation fees to officials',isCorrect:false}
+     {th:'การให้สินบนแก่เจ้าหน้าที่รัฐเพื่อแลกกับผลประโยชน์',en:'Bribing a government official in exchange for a benefit',isCorrect:false},
+     {th:'การรับของขวัญที่มีมูลค่าเกินกว่าที่นโยบายกำหนดไว้',en:'Accepting a gift worth more than the policy allows',isCorrect:false},
+     {th:'การให้ข้อมูลผิดพลาดแก่ลูกค้าโดยไม่มีเจตนาทุจริต',en:'Giving a client wrong information by honest mistake',isCorrect:true},
+     {th:'การจ่ายค่าอำนวยความสะดวกให้เจ้าหน้าที่เพื่อความรวดเร็ว',en:'Paying an official a facilitation fee to speed things up',isCorrect:false}
    ],
    expTh:'การให้ข้อมูลผิดพลาดโดยไม่ตั้งใจไม่ใช่การทุจริต แต่อาจเข้าข่ายนโยบายอื่น เช่น Fair Treatment',
    expEn:'Accidentally giving wrong information is not corruption, though it may fall under other policies like Fair Treatment.',
@@ -915,10 +915,10 @@ var FULL_QUESTION_BANK = [
    qTh:'ผู้จัดการสาขาสั่งพนักงานให้แอบจ่าย "ค่าน้ำร้อนน้ำชา" ให้เจ้าหน้าที่เทศบาลเพื่อให้อนุมัติต่อใบอนุญาตได้รวดเร็ว พนักงานควรทำอย่างไร?',
    qEn:'A branch manager orders an employee to secretly pay "tea money" to a municipal official for a faster permit renewal. What should the employee do?',
    choices:[
-     {th:'ทำตามคำสั่งเพราะเป็นหน้าที่ลูกน้อง',en:'Follow orders since it\'s a subordinate\'s duty',isCorrect:false},
-     {th:'ปฏิเสธ เพราะแม้คำสั่งจะมาจากผู้บังคับบัญชา การจ่ายสินบนถือเป็นความผิดที่พนักงานผู้ปฏิบัติต้องรับผิดชอบด้วย',en:'Refuse — even if ordered by management, paying a bribe makes the executor liable too',isCorrect:true},
-     {th:'จ่ายแล้วให้ผู้จัดการลงนามรับรองทีหลัง',en:'Pay and have the manager countersign later',isCorrect:false},
-     {th:'จ่ายก่อนแล้วแจ้งเบาะแสภายหลัง',en:'Pay first and whistleblow later',isCorrect:false}
+     {th:'ทำตามคำสั่งไปก่อน เพราะถือเป็นหน้าที่ของผู้ใต้บังคับบัญชาที่ต้องเชื่อฟัง',en:'Follow the order, since obeying superiors is a subordinate\'s duty',isCorrect:false},
+     {th:'ปฏิเสธ เพราะแม้เป็นคำสั่งผู้บังคับบัญชา ผู้ปฏิบัติก็ต้องรับผิดด้วย',en:'Refuse — even on orders, whoever pays the bribe is liable too',isCorrect:true},
+     {th:'จ่ายไปก่อนแล้วให้ผู้จัดการลงนามรับรองความถูกต้องในภายหลัง',en:'Pay first and have the manager countersign it as correct afterward',isCorrect:false},
+     {th:'จ่ายไปตามที่สั่งก่อนแล้วจึงค่อยแจ้งเบาะแสในภายหลัง',en:'Pay as instructed first and report the matter as a whistleblower later',isCorrect:false}
    ],
    expTh:'การจ่ายสินบนแม้จะได้รับคำสั่งจากผู้บังคับบัญชา ผู้ที่ปฏิบัติก็มีความรับผิดชอบและอาจถูกลงโทษด้วย',
    expEn:'Paying a bribe even under orders still makes the executor liable for the offense.',
@@ -928,10 +928,10 @@ var FULL_QUESTION_BANK = [
    qTh:'คู่ค้าเสนอ "ทริปดูงานต่างประเทศ" พร้อมค่าตั๋วเครื่องบินและโรงแรมมูลค่า 50,000 บาทให้ทีมงานจัดซื้อ ภายใต้เงื่อนไขว่าต้องได้สัญญา การกระทำนี้เข้าข่ายอะไร?',
    qEn:'A partner offers a "study trip abroad" with flights and hotel worth 50,000 Baht to the procurement team, on condition that they win the contract. What does this constitute?',
    choices:[
-     {th:'สิทธิประโยชน์ปกติที่คู่ค้ามอบให้',en:'Normal benefits from a partner',isCorrect:false},
-     {th:'สินบนแฝงในรูปแบบสิทธิประโยชน์ที่ต้องปฏิเสธและรายงานทันที',en:'A concealed bribe disguised as a benefit — must refuse and report immediately',isCorrect:true},
-     {th:'ไม่ผิด เพราะไม่ใช่เงินสด',en:'Not a violation since it\'s not cash',isCorrect:false},
-     {th:'ต้องขออนุมัติผู้บริหารระดับสูงก็รับได้',en:'Acceptable if approved by senior management',isCorrect:false}
+     {th:'ถือเป็นสิทธิประโยชน์ปกติที่คู่ค้ามักมอบให้ทีมงาน',en:'A normal benefit that partners commonly offer a team',isCorrect:false},
+     {th:'สินบนแฝงในรูปแบบสิทธิประโยชน์ ต้องปฏิเสธและรายงานทันที',en:'A disguised bribe wrapped as a benefit — refuse and report at once',isCorrect:true},
+     {th:'ไม่ผิดกฎเพราะของที่เสนอมาไม่ใช่เงินสดโดยตรง',en:'Not a violation, since the offer isn\'t direct cash',isCorrect:false},
+     {th:'รับได้หากขออนุมัติจากผู้บริหารระดับสูงก่อนล่วงหน้า',en:'Acceptable if senior management approves it beforehand',isCorrect:false}
    ],
    expTh:'ผลประโยชน์ที่มีเงื่อนไขผูกกับผลการตัดสินใจธุรกิจถือเป็นสินบนแฝง ต้องปฏิเสธและรายงานทันที',
    expEn:'Benefits tied to a business decision outcome are disguised bribes and must be refused and reported.',
@@ -941,10 +941,10 @@ var FULL_QUESTION_BANK = [
    qTh:'CFO ของบริษัทถือหุ้นส่วนใหญ่ในบริษัทซอฟต์แวร์ที่กำลังประมูลงานกับบริษัท แต่ไม่ได้เปิดเผยข้อมูลนี้และเข้าร่วมอนุมัติสัญญา ถือเป็นการละเมิดอะไร?',
    qEn:'The CFO holds major shares in a software company bidding for a contract, but didn\'t disclose this and participated in approving the deal. What violation is this?',
    choices:[
-     {th:'ละเมิดเล็กน้อยเพราะ CFO ไม่ได้รับเงินสดโดยตรง',en:'A minor violation since no cash was directly received',isCorrect:false},
-     {th:'ละเมิดหลักความขัดแย้งทางผลประโยชน์ขั้นร้ายแรง อาจเข้าข่ายคดีอาญาฐานปฏิบัติหน้าที่โดยมิชอบ',en:'Serious conflict-of-interest violation, potentially criminal misconduct in office',isCorrect:true},
-     {th:'ไม่ผิดเพราะ CFO มีอำนาจอนุมัติโดยชอบธรรม',en:'No violation since CFO has legitimate approval authority',isCorrect:false},
-     {th:'ผิดเฉพาะถ้าบริษัทซอฟต์แวร์ได้สัญญาไปจริงๆ',en:'Only a violation if the software company actually wins the contract',isCorrect:false}
+     {th:'ละเมิดเพียงเล็กน้อยเพราะ CFO ไม่ได้รับเงินสดโดยตรง',en:'A minor breach only, since the CFO took no direct cash',isCorrect:false},
+     {th:'ละเมิดหลัก Conflict of Interest ขั้นร้ายแรง อาจเข้าข่ายอาญา',en:'A serious conflict-of-interest breach, potentially criminal',isCorrect:true},
+     {th:'ไม่ผิดเพราะ CFO มีอำนาจอนุมัติสัญญาโดยชอบธรรมอยู่แล้ว',en:'No violation, since the CFO holds legitimate approval authority',isCorrect:false},
+     {th:'ผิดเฉพาะกรณีที่บริษัทซอฟต์แวร์ชนะสัญญาไปจริงๆ เท่านั้น',en:'Only a violation if the software firm actually wins the deal',isCorrect:false}
    ],
    expTh:'ผู้บริหารที่มีผลประโยชน์ส่วนได้เสียต้องเปิดเผยและงดเว้นจากการตัดสินใจ การไม่เปิดเผยและเข้าร่วมตัดสินใจถือเป็นความผิดร้ายแรง',
    expEn:'Executives with personal interests must disclose and abstain; failing to do so and joining the decision is a serious violation.',
@@ -954,10 +954,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานแจ้งเบาะแสว่าหัวหน้าแอบเอาเงินสดลูกค้าไปใช้ส่วนตัว แต่หลังการสอบสวน หัวหน้าพ้นข้อกล่าวหา แล้วมาข่มขู่พนักงาน บริษัทควรดำเนินการอย่างไร?',
    qEn:'An employee reports their boss for misusing client cash. After investigation the boss is cleared, then threatens the employee. How should the company respond?',
    choices:[
-     {th:'ไม่เข้าไปยุ่ง เพราะพิสูจน์แล้วว่าหัวหน้าไม่ผิด',en:'Stay out — the boss was cleared of wrongdoing',isCorrect:false},
-     {th:'ดำเนินการทางวินัยกับหัวหน้าที่ข่มขู่ทันที เพราะการข่มขู่ผู้แจ้งเบาะแสเป็นความผิดแยกต่างหาก',en:'Take disciplinary action against the threatening boss immediately — threatening a whistleblower is a separate offense',isCorrect:true},
-     {th:'แนะนำให้พนักงานทนอยู่และไม่ยุ่งเรื่องคนอื่น',en:'Advise the employee to tolerate it and not interfere',isCorrect:false},
-     {th:'ย้ายพนักงานผู้แจ้งไปสาขาอื่นเพื่อหลีกเลี่ยงความขัดแย้ง',en:'Transfer the whistleblower to another branch to avoid conflict',isCorrect:false}
+     {th:'ไม่เข้าไปยุ่งเกี่ยว เพราะพิสูจน์แล้วว่าหัวหน้าไม่มีความผิด',en:'Stay out of it, since the boss was already cleared',isCorrect:false},
+     {th:'ดำเนินวินัยกับหัวหน้าที่ข่มขู่ทันที เพราะถือเป็นความผิดแยกต่างหาก',en:'Discipline the threatening boss at once as a separate offense',isCorrect:true},
+     {th:'แนะนำให้พนักงานอดทนไว้และไม่เข้าไปยุ่งเรื่องของผู้อื่น',en:'Advise the employee to tolerate it and stay out of others\' affairs',isCorrect:false},
+     {th:'ย้ายพนักงานผู้แจ้งไปประจำสาขาอื่นเพื่อลดความขัดแย้ง',en:'Transfer the reporting employee to another branch to ease tension',isCorrect:false}
    ],
    expTh:'การข่มขู่ผู้แจ้งเบาะแสเป็นความผิดร้ายแรงแยกต่างหากจากกรณีหลัก บริษัทต้องดำเนินการทางวินัยกับผู้ข่มขู่ทันที',
    expEn:'Threatening a whistleblower is a separate serious offense; the company must take disciplinary action immediately.',
@@ -967,10 +967,10 @@ var FULL_QUESTION_BANK = [
    qTh:'บริษัทต้องการเร่งผ่านพิธีการศุลกากรสำหรับอุปกรณ์สำคัญ ตัวแทนแนะนำว่าถ้าจ่าย "ค่าบริการพิเศษ" ให้เจ้าหน้าที่ จะผ่านได้ทันที ผู้จัดการควรตอบสนองอย่างไร?',
    qEn:'The company needs to expedite customs clearance for critical equipment. An agent suggests a "special service fee" will speed things up. How should the manager respond?',
    choices:[
-     {th:'อนุมัติเพราะสถานการณ์เร่งด่วน',en:'Approve due to urgency',isCorrect:false},
-     {th:'ให้ตัวแทนจ่ายแทนแล้วเบิกคืนเป็นค่าใช้จ่ายพิเศษ',en:'Have the agent pay and reimburse as a special expense',isCorrect:false},
-     {th:'ปฏิเสธทันที ดำเนินการตามขั้นตอนกฎหมายปกติ และรายงานต่อฝ่าย Compliance',en:'Refuse immediately, proceed through legal channels, and report to Compliance',isCorrect:true},
-     {th:'ปรึกษากรรมการบริษัทก่อนตัดสินใจ',en:'Consult the board before deciding',isCorrect:false}
+     {th:'อนุมัติให้จ่ายไปก่อนเพราะสถานการณ์อยู่ในขั้นเร่งด่วน',en:'Approve payment now, given how urgent the situation is',isCorrect:false},
+     {th:'ให้ตัวแทนสำรองจ่ายไปก่อนแล้วเบิกคืนเป็นค่าใช้จ่ายพิเศษ',en:'Have the agent front the cost and reclaim it as a special expense',isCorrect:false},
+     {th:'ปฏิเสธทันที ดำเนินการตามขั้นตอนปกติ และรายงานฝ่าย Compliance',en:'Refuse immediately, use normal procedure, and notify Compliance',isCorrect:true},
+     {th:'ปรึกษากรรมการบริษัทก่อนตัดสินใจว่าจะดำเนินการอย่างไร',en:'Consult the board of directors before deciding how to proceed',isCorrect:false}
    ],
    expTh:'ค่าบริการพิเศษเพื่ออำนวยความสะดวกคือสินบนไม่ว่าจะจ่ายตรงหรือผ่านตัวแทน ต้องปฏิเสธและรายงาน',
    expEn:'Expediting fees are bribes whether paid directly or through agents; refuse and report to Compliance.',
@@ -980,10 +980,10 @@ var FULL_QUESTION_BANK = [
    qTh:'ในวันเกษียณอายุของอธิบดีกรมที่บริษัทมีธุรกิจด้วยกัน เพื่อนร่วมงานหลายคนเสนอให้ช่วยกันซื้อของขวัญราคา 15,000 บาทในนามทีม พนักงานควรทำอย่างไร?',
    qEn:'On a government director\'s retirement day, colleagues suggest pooling money for a 15,000 Baht gift on behalf of the team. What should the employee do?',
    choices:[
-     {th:'ร่วมด้วยเพราะเป็นการแสดงมิตรไมตรี',en:'Join in as a gesture of goodwill',isCorrect:false},
-     {th:'ปฏิเสธ เพราะมูลค่ารวมเกิน 3,000 บาท และยังเป็นเจ้าหน้าที่รัฐที่มีอำนาจต่อบริษัท',en:'Refuse — total value exceeds 3,000 Baht and the recipient is a government official with authority over the company',isCorrect:true},
-     {th:'ร่วมได้เพราะเป็นการออกเงินกันหลายคน มูลค่าต่อคนน้อย',en:'Can join since many people share the cost, making each person\'s contribution small',isCorrect:false},
-     {th:'ให้ผู้บริหารเป็นคนตัดสินใจแทน',en:'Let management decide',isCorrect:false}
+     {th:'ร่วมสมทบเงินด้วยเพราะถือเป็นการแสดงมิตรไมตรีตามธรรมเนียม',en:'Join in, since it\'s a customary gesture of goodwill',isCorrect:false},
+     {th:'ปฏิเสธ เพราะมูลค่ารวมเกิน 3,000 บาทและผู้รับเป็นเจ้าหน้าที่รัฐ',en:'Refuse — the total exceeds 3,000 Baht and the recipient is an official',isCorrect:true},
+     {th:'ร่วมได้เพราะหารเฉลี่ยกันหลายคนแล้วมูลค่าต่อหัวจึงน้อยมาก',en:'Can join, since splitting among many makes each share tiny',isCorrect:false},
+     {th:'ให้ผู้บริหารระดับสูงเป็นผู้ตัดสินใจแทนทีมทั้งหมด',en:'Let senior management decide on the team\'s behalf instead',isCorrect:false}
    ],
    expTh:'มูลค่าของขวัญคิดจากยอดรวมทั้งหมด ไม่ใช่ต่อคน และการให้แก่เจ้าหน้าที่รัฐต้องระมัดระวังเป็นพิเศษ',
    expEn:'Gift value is based on total amount, not per person; extra caution applies to gifts for government officials.',
@@ -993,10 +993,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานฝ่าย HR มีหน้าที่สัมภาษณ์ผู้สมัครงาน และรู้ว่าหนึ่งในผู้สมัครคือลูกชายของผู้บริหารระดับสูงของบริษัท พนักงานควรปฏิบัติตนอย่างไร?',
    qEn:'An HR employee interviewing candidates discovers one is a senior executive\'s son. What should the employee do?',
    choices:[
-     {th:'ให้คะแนนพิเศษเพื่อเอาใจผู้บริหาร',en:'Give extra points to please the executive',isCorrect:false},
-     {th:'แจ้งหัวหน้างานฝ่าย HR ทันทีเพื่อให้ผู้อื่นที่ไม่มีส่วนได้เสียดำเนินการสัมภาษณ์แทน',en:'Immediately notify the HR manager so an unconflicted person conducts the interview instead',isCorrect:true},
-     {th:'สัมภาษณ์ตามปกติเพราะเป็นพนักงานใหม่ยังไม่มีอำนาจ',en:'Interview normally since the executive hasn\'t officially influenced anything',isCorrect:false},
-     {th:'ปฏิเสธสัมภาษณ์โดยไม่อธิบายเหตุผล',en:'Refuse to interview without explaining why',isCorrect:false}
+     {th:'ให้คะแนนพิเศษเพิ่มขึ้นเพื่อเอาใจผู้บริหารท่านนั้น',en:'Award extra points to keep the executive happy',isCorrect:false},
+     {th:'แจ้งหัวหน้างาน HR ทันทีให้ผู้อื่นที่ไม่มีส่วนได้เสียสัมภาษณ์แทน',en:'Notify the HR manager so an unconflicted colleague interviews instead',isCorrect:true},
+     {th:'สัมภาษณ์ไปตามปกติเพราะผู้สมัครยังไม่มีตำแหน่งใดๆในบริษัท',en:'Interview as usual since the candidate holds no position yet',isCorrect:false},
+     {th:'ปฏิเสธที่จะสัมภาษณ์โดยไม่อธิบายเหตุผลใดให้ผู้ใดทราบ',en:'Refuse to interview without explaining the reason to anyone',isCorrect:false}
    ],
    expTh:'ความสัมพันธ์ระหว่างผู้สมัครกับผู้บริหารเป็น Conflict of Interest ต้องแจ้งและให้ผู้ที่ไม่มีส่วนได้เสียดำเนินการแทน',
    expEn:'A candidate\'s relationship with an executive is a conflict of interest; disclose and have an unconflicted person handle it.',
@@ -1006,10 +1006,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานฝ่ายการตลาดได้รับเสนอให้ใช้บริษัทโฆษณาของเพื่อนสนิท โดยราคาพอๆ กับตลาด แต่ไม่ได้ผ่านกระบวนการประมูลปกติ ผ่าน Stop Test ได้ไหม?',
    qEn:'A marketing employee is asked to use a close friend\'s ad agency at market rate, bypassing the normal bidding process. Does this pass the Stop Test?',
    choices:[
-     {th:'ผ่าน เพราะราคาเท่าตลาดไม่ได้แพงกว่า',en:'Passes — market rate means no extra cost',isCorrect:false},
-     {th:'ผ่าน เพราะเพื่อนสนิทไม่ใช่ญาติ',en:'Passes — close friend is not a relative',isCorrect:false},
-     {th:'ไม่ผ่าน เพราะขัดนโยบายจัดซื้อ ไม่ผ่านกระบวนการประมูล และมีความสัมพันธ์ส่วนตัวกับคู่ค้า',en:'Fails — violates procurement policy, skips bidding, and involves a personal relationship with the vendor',isCorrect:true},
-     {th:'ผ่าน ถ้าผู้บริหารอนุมัติ',en:'Passes if management approves',isCorrect:false}
+     {th:'ผ่าน เพราะราคาที่เสนอเท่ากับราคาตลาดไม่ได้แพงไปกว่ากัน',en:'Passes — the price matches market rate, nothing extra paid',isCorrect:false},
+     {th:'ผ่าน เพราะเพื่อนสนิทไม่ถือเป็นญาติตามนิยามนโยบาย',en:'Passes — a close friend doesn\'t count as a relative by policy',isCorrect:false},
+     {th:'ไม่ผ่าน เพราะขัดนโยบายจัดซื้อ ไม่มีการประมูล และมีสัมพันธ์ส่วนตัว',en:'Fails — breaks procurement rules, skips bidding, personal ties exist',isCorrect:true},
+     {th:'ผ่าน หากผู้บริหารระดับสูงเซ็นอนุมัติให้ก่อนดำเนินการ',en:'Passes, as long as senior management signs off beforehand',isCorrect:false}
    ],
    expTh:'Stop Test ไม่ผ่านทันทีเพราะขัดนโยบายจัดซื้อ ไม่มีการประมูล และมี Conflict of Interest แฝง',
    expEn:'Fails the Stop Test: procurement policy violated, no bidding, and hidden conflict of interest.',
@@ -1019,10 +1019,10 @@ var FULL_QUESTION_BANK = [
    qTh:'พนักงานรู้เห็นการทุจริตของหัวหน้างานมาเป็นเวลา 6 เดือนโดยไม่ได้รายงาน บริษัทอาจพิจารณาดำเนินการอย่างไรกับพนักงานผู้นี้?',
    qEn:'An employee has known about a supervisor\'s corruption for 6 months without reporting it. What may the company do to this employee?',
    choices:[
-     {th:'ไม่ดำเนินการเพราะพนักงานไม่ได้กระทำทุจริตเอง',en:'No action since the employee didn\'t personally commit the fraud',isCorrect:false},
-     {th:'ตักเตือนเป็นลายลักษณ์อักษร',en:'Issue a written warning',isCorrect:false},
-     {th:'พิจารณาความผิดทางวินัยฐานรู้เห็นเป็นใจหรือละเว้นการแจ้งเหตุตามหน้าที่',en:'Consider disciplinary action for complicity or failure to report as required',isCorrect:true},
-     {th:'ไม่ดำเนินการหากพนักงานสัญญาจะรายงานในอนาคต',en:'No action if the employee promises to report in the future',isCorrect:false}
+     {th:'ไม่ดำเนินการใดๆ เพราะพนักงานไม่ได้ก่อการทุจริตด้วยตนเอง',en:'Take no action, since the employee wasn\'t the one who cheated',isCorrect:false},
+     {th:'ออกหนังสือตักเตือนเป็นลายลักษณ์อักษรไว้เป็นหลักฐาน',en:'Issue a formal written warning to keep on record',isCorrect:false},
+     {th:'พิจารณาวินัยฐานรู้เห็นเป็นใจหรือละเว้นการแจ้งเหตุตามหน้าที่',en:'Consider discipline for complicity or failing to report as required',isCorrect:true},
+     {th:'ไม่ดำเนินการใดๆ หากพนักงานสัญญาว่าจะรายงานในอนาคต',en:'Take no action if the employee promises to report in future',isCorrect:false}
    ],
    expTh:'การรู้เห็นการทุจริตและไม่รายงานถือเป็นการละเว้นหน้าที่และอาจถูกพิจารณาว่ามีส่วนร่วม (Complicit)',
    expEn:'Knowing about corruption and not reporting constitutes dereliction of duty and may be treated as complicity.',
@@ -1032,10 +1032,10 @@ var FULL_QUESTION_BANK = [
    qTh:'ผู้บริหารระดับสูงสั่งให้แผนก Compliance "มองข้าม" รายการธุรกรรมที่น่าสงสัยชุดหนึ่งเพื่อไม่ให้กระทบยอดรายได้ไตรมาส เจ้าหน้าที่ Compliance ควรทำอย่างไร?',
    qEn:'A senior executive orders the Compliance team to "overlook" a set of suspicious transactions to protect quarterly revenue. What should the Compliance officer do?',
    choices:[
-     {th:'ทำตามคำสั่งเพราะผู้บริหารมีอำนาจสูงกว่า',en:'Follow the order since the executive outranks them',isCorrect:false},
-     {th:'ปฏิเสธปฏิบัติตามคำสั่ง รายงานต่อคณะกรรมการตรวจสอบหรือประธานกรรมการ และบันทึกหลักฐานไว้',en:'Refuse to comply, report to the Audit Committee or Board Chair, and preserve evidence',isCorrect:true},
-     {th:'มองข้ามไตรมาสนี้ไตรมาสเดียวแล้วรายงานไตรมาสหน้า',en:'Overlook just this quarter and report next quarter',isCorrect:false},
-     {th:'ลาออกจากงานเพื่อหลีกเลี่ยงความรับผิดชอบ',en:'Resign to avoid personal liability',isCorrect:false}
+     {th:'ทำตามคำสั่งเพราะผู้บริหารมีอำนาจสูงกว่าในสายงาน',en:'Follow the order, since the executive outranks them',isCorrect:false},
+     {th:'ปฏิเสธคำสั่ง รายงานต่อคณะกรรมการตรวจสอบ และเก็บหลักฐานไว้',en:'Refuse the order, report to the Audit Committee, and preserve evidence',isCorrect:true},
+     {th:'มองข้ามไปเฉพาะไตรมาสนี้แล้วค่อยรายงานในไตรมาสถัดไป',en:'Overlook it just this quarter and report it next quarter',isCorrect:false},
+     {th:'ลาออกจากตำแหน่งเพื่อหลีกเลี่ยงความรับผิดชอบส่วนตัว',en:'Resign from the position to avoid personal responsibility',isCorrect:false}
    ],
    expTh:'เจ้าหน้าที่ Compliance มีหน้าที่รายงานการทุจริตโดยตรงต่อคณะกรรมการตรวจสอบ แม้คำสั่งจะมาจากผู้บริหารสูงสุด',
    expEn:'Compliance officers must report corruption directly to the Audit Committee, regardless of who orders otherwise.',
@@ -1194,7 +1194,9 @@ function renderDossierGrid(){
   });
 }
 
+var currentModalDossier=null;
 function openDossier(d){
+  currentModalDossier=d;
   var thumb=document.getElementById('modalThumb');
   thumb.innerHTML='';
   var _mimg=document.createElement('img');
@@ -1228,9 +1230,9 @@ function updateAckState(){
   }
 }
 
-document.getElementById('modalClose').addEventListener('click',function(){document.getElementById('dossierModal').hidden=true;});
-document.getElementById('modalCloseBtn').addEventListener('click',function(){document.getElementById('dossierModal').hidden=true;});
-document.getElementById('dossierModal').addEventListener('click',function(e){if(e.target===this)this.hidden=true;});
+document.getElementById('modalClose').addEventListener('click',function(){document.getElementById('dossierModal').hidden=true;currentModalDossier=null;});
+document.getElementById('modalCloseBtn').addEventListener('click',function(){document.getElementById('dossierModal').hidden=true;currentModalDossier=null;});
+document.getElementById('dossierModal').addEventListener('click',function(e){if(e.target===this){this.hidden=true;currentModalDossier=null;}});
 
 document.getElementById('ackButton').addEventListener('click',function(){
   this.textContent=DICT[currentLang].ackBtnDone;
@@ -1421,8 +1423,67 @@ function applyLanguage(lang){
   renderDepartmentOptions();
   renderDossierGrid();
   updateAckState();
+
+  // อัปเดตสถานะบัตรพนักงาน (หน้าลงทะเบียน) ให้ตรงกับภาษาปัจจุบัน
+  if(!document.getElementById('idResult').hidden){
+    renderResultCard();
+  } else {
+    document.getElementById('cardStatus').textContent=DICT[lang].cardStatusDefault;
+  }
+
   if(!document.getElementById('screen-briefing').hidden){
     document.getElementById('stripDept').textContent=currentLang==='th'?employeeData.dept:translateDeptToEn(employeeData.dept);
+  }
+
+  // อัปเดตแฟ้มลับที่เปิดอยู่ในโมดัล (หากกำลังเปิดอยู่)
+  if(!document.getElementById('dossierModal').hidden && currentModalDossier){
+    var d=currentModalDossier;
+    document.getElementById('modalEyebrow').textContent=DICT[lang].fileNo+(DOSSIERS.indexOf(d)+1);
+    document.getElementById('modalTitle').textContent=d[lang].title;
+    document.getElementById('modalBodyText').textContent=d[lang].body;
+  }
+
+  // อัปเดตภาษาบนหน้าแบบทดสอบ (Quiz) ทันที (หากกำลังเปิดอยู่)
+  if(!document.getElementById('screen-assessment').hidden && quizState.pool.length>0){
+    var qData=quizState.pool[quizState.currentQIndex];
+    var isTh=lang==='th';
+
+    document.getElementById('qDifficulty').textContent=DICT[lang][qData.level==='Hard'?'diffHard':'diffMedium'];
+    document.getElementById('quizQuestionText').textContent=isTh?qData.qTh:qData.qEn;
+
+    var allBtns=document.querySelectorAll('.choice-btn');
+    allBtns.forEach(function(btn){
+      if(btn.choiceData){
+        var textSpan=btn.querySelector('.choice-text');
+        if(textSpan) textSpan.textContent=isTh?btn.choiceData.th:btn.choiceData.en;
+      }
+    });
+
+    var nextBtn=document.getElementById('quizNextBtn');
+    if(!nextBtn.hidden){
+      var isLast=quizState.currentQIndex===quizState.pool.length-1;
+      nextBtn.textContent=isLast?DICT[lang].quizFinishBtn:DICT[lang].quizNextBtn;
+    }
+
+    var feedbackPanel=document.getElementById('quizFeedback');
+    if(!feedbackPanel.hidden){
+      var isCorrect=feedbackPanel.classList.contains('correct');
+      document.getElementById('feedbackTitle').textContent=isCorrect?DICT[lang].correctTitle:DICT[lang].incorrectTitle;
+      var descEl=document.getElementById('feedbackDesc');
+      var refEl=document.getElementById('feedbackRef');
+      if(isCorrect){
+        descEl.textContent=isTh?qData.expTh:qData.expEn;
+        refEl.textContent=qData.ref;
+      }
+    }
+  }
+
+  // อัปเดตภาษาบนหน้าสรุปผล (Summary) ทันที (หากกำลังเปิดอยู่)
+  if(!document.getElementById('screen-summary').hidden){
+    var isPass=quizState.score>=8;
+    document.getElementById('sumTitle').textContent=isPass?DICT[lang].passTitle:DICT[lang].failTitle;
+    document.getElementById('sumSubtitle').textContent=isPass?DICT[lang].passSubtitle:DICT[lang].failSubtitle;
+    document.getElementById('sumDept').textContent=currentLang==='th'?employeeData.dept:translateDeptToEn(employeeData.dept);
   }
 }
 
@@ -1441,6 +1502,7 @@ function toggleMusic(){
     document.getElementById('musicBtn').textContent='🔊';
   }
 }
+document.getElementById('musicBtn').addEventListener('click', toggleMusic);
 
 /* =========================================================
    13. Init
