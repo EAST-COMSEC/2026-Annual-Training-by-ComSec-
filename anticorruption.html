@@ -520,6 +520,18 @@
   </div>
 </div>
 
+<div class="modal" id="lockModal" hidden role="dialog" aria-modal="true" aria-labelledby="lockModalTitle">
+  <div class="modal-card">
+    <button class="modal-close" id="lockModalClose" aria-label="ปิด">✕</button>
+    <p class="modal-eyebrow" id="lockModalEyebrow" data-i18n="lockModalEyebrow">ระบบป้องกันการทำซ้ำ</p>
+    <h3 id="lockModalTitle">คุณผ่านการทดสอบนี้แล้ว</h3>
+    <p class="modal-body-text" id="lockModalBody"></p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-primary" id="lockModalCloseBtn" data-i18n="lockModalCloseBtn">รับทราบ</button>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
 "use strict";
@@ -550,6 +562,12 @@ var DICT = {
     completionText:'คุณได้รับข้อมูลข่าวกรองครบทุกฉบับแล้ว กรุณากดปุ่มด้านล่างเพื่อเข้าสู่ด่านทดสอบ',
     goQuizBtn:'เริ่มปฏิบัติการ: แบบทดสอบ →',
     modalCloseBtn:'ปิดแฟ้ม',
+    lockModalEyebrow:'ระบบป้องกันการทำซ้ำ',
+    lockModalTitlePass:'คุณผ่านการทดสอบนี้แล้ว',
+    lockModalTitleMaxed:'คุณทำแบบทดสอบครบ 3 ครั้งแล้ว',
+    lockModalBodyPass:'ชื่อ-นามสกุลนี้สอบผ่านหลักสูตรนี้แล้ว ระบบไม่อนุญาตให้ทำแบบทดสอบซ้ำอีก หากคิดว่าเป็นความผิดพลาด กรุณาติดต่อฝ่ายบุคคลหรือผู้ดูแลระบบ',
+    lockModalBodyMaxed:'ชื่อ-นามสกุลนี้ทำแบบทดสอบครบ 3 ครั้งแล้วแต่ยังไม่ผ่านเกณฑ์ ระบบไม่อนุญาตให้ทำแบบทดสอบซ้ำอีก กรุณาติดต่อฝ่ายบุคคลหรือผู้ดูแลระบบเพื่อขอสิทธิ์เพิ่มเติม',
+    lockModalCloseBtn:'รับทราบ',
     dossierOpen:'ถอดรหัส',dossierRead:'รับทราบแล้ว',fileNo:'แฟ้มที่ ',
     cardStatusDefault:'รอการอนุมัติ',cardStatusGranted:'อนุมัติเรียบร้อย',
     ackBtn:'รับทราบภารกิจและพร้อมปฏิบัติการ',ackBtnDone:'รับทราบแล้ว ✓',
@@ -592,6 +610,12 @@ var DICT = {
     completionText:'You have received all intelligence files. Click below to proceed to the assessment.',
     goQuizBtn:'Begin Operation: Assessment →',
     modalCloseBtn:'Close File',
+    lockModalEyebrow:'Duplicate Attempt Blocked',
+    lockModalTitlePass:'You have already passed this assessment',
+    lockModalTitleMaxed:'You have used all 3 attempts',
+    lockModalBodyPass:'This name has already passed this course. Repeat attempts are not allowed. If you believe this is an error, please contact HR or the system administrator.',
+    lockModalBodyMaxed:'This name has used all 3 attempts for this course without passing. Repeat attempts are not allowed. Please contact HR or the system administrator for further assistance.',
+    lockModalCloseBtn:'Acknowledge',
     dossierOpen:'Decrypt',dossierRead:'Received',fileNo:'File ',
     cardStatusDefault:'PENDING CLEARANCE',cardStatusGranted:'CLEARANCE GRANTED',
     ackBtn:'Acknowledge Mission & Comply',ackBtnDone:'Acknowledged ✓',
@@ -1049,6 +1073,60 @@ var employeeData={name:'',dept:'',registeredAt:null};
 var quizState={pool:[],currentQIndex:0,score:0,attempt:0,maxAttempts:3,answers:[]};
 
 /* =========================================================
+   4b. Exam Lock — ป้องกันพนักงานคนเดิม (ชื่อ-นามสกุลตรงกัน)
+        ทำข้อสอบซ้ำหลังผ่านแล้ว หรือหลังหมดสิทธิ์ 3 ครั้งแล้วยังไม่ผ่าน
+        (อ้างอิงจาก localStorage ของเบราว์เซอร์ที่ใช้สอบ)
+   ========================================================= */
+var EXAM_LOCK_COURSE_KEY='anticorruption';
+var EXAM_LOCK_STORAGE_KEY='eastExamLockRecords';
+
+function normalizeNameKey(name){
+  return (name||'').trim().toLowerCase().replace(/\s+/g,' ');
+}
+function getExamLockRecords(){
+  try{
+    var raw=window.localStorage.getItem(EXAM_LOCK_STORAGE_KEY);
+    return raw?JSON.parse(raw):{};
+  }catch(e){return {};}
+}
+function saveExamLockRecord(name,course,data){
+  try{
+    var records=getExamLockRecords();
+    var key=normalizeNameKey(name);
+    if(!records[key])records[key]={};
+    records[key][course]=data;
+    window.localStorage.setItem(EXAM_LOCK_STORAGE_KEY,JSON.stringify(records));
+  }catch(e){ /* localStorage ไม่พร้อมใช้งาน — ปล่อยผ่าน ไม่ทำให้ระบบล่ม */ }
+}
+// คืนค่า: null = ทำสอบได้ปกติ, 'pass' = ผ่านแล้วห้ามทำซ้ำ, 'maxed' = หมดสิทธิ์ 3 ครั้งแล้วยังไม่ผ่าน
+function checkExamLockStatus(name,course){
+  var records=getExamLockRecords();
+  var key=normalizeNameKey(name);
+  var rec=records[key]&&records[key][course];
+  if(!rec)return null;
+  if(rec.status==='Pass')return 'pass';
+  if(rec.status==='Fail'&&rec.attempt>=3)return 'maxed';
+  return null;
+}
+function showLockModal(status){
+  var modal=document.getElementById('lockModal');
+  modal.dataset.lockStatus=status;
+  var titleEl=document.getElementById('lockModalTitle');
+  var bodyEl=document.getElementById('lockModalBody');
+  if(status==='pass'){
+    titleEl.textContent=DICT[currentLang].lockModalTitlePass;
+    bodyEl.textContent=DICT[currentLang].lockModalBodyPass;
+  }else{
+    titleEl.textContent=DICT[currentLang].lockModalTitleMaxed;
+    bodyEl.textContent=DICT[currentLang].lockModalBodyMaxed;
+  }
+  modal.hidden=false;
+}
+document.getElementById('lockModalClose').addEventListener('click',function(){document.getElementById('lockModal').hidden=true;});
+document.getElementById('lockModalCloseBtn').addEventListener('click',function(){document.getElementById('lockModal').hidden=true;});
+document.getElementById('lockModal').addEventListener('click',function(e){if(e.target===this)this.hidden=true;});
+
+/* =========================================================
    5. Stage Navigation
    ========================================================= */
 
@@ -1114,6 +1192,8 @@ registerForm.addEventListener('submit',function(e){
   var n=document.getElementById('agentName');
   var d=document.getElementById('agentDept');
   if(!n.value.trim()||!d.value){registerForm.reportValidity();return;}
+  var lockStatus=checkExamLockStatus(n.value.trim(),EXAM_LOCK_COURSE_KEY);
+  if(lockStatus){showLockModal(lockStatus);return;}
   employeeData.name=n.value.trim();
   employeeData.dept=d.value;
   employeeData.registeredAt=new Date();
@@ -1347,6 +1427,16 @@ document.getElementById('quizNextBtn').addEventListener('click',function(){
 function showSummary(){
   setStage(4);
   var isPass=quizState.score>=8;
+
+  // บันทึกผลการสอบล่าสุดของชื่อ-นามสกุลนี้ไว้ใน localStorage
+  // เพื่อใช้เช็คการป้องกันการทำข้อสอบซ้ำในครั้งต่อไป
+  saveExamLockRecord(employeeData.name,EXAM_LOCK_COURSE_KEY,{
+    status:isPass?'Pass':'Fail',
+    attempt:quizState.attempt,
+    score:quizState.score,
+    updatedAt:new Date().toISOString()
+  });
+
   // Play result image (happy/sad)
   var resultImg=document.getElementById('resultImg');
   resultImg.src=isPass?'image/happy.jpg':'image/sad.jpg';
@@ -1429,6 +1519,12 @@ function applyLanguage(lang){
     renderResultCard();
   } else {
     document.getElementById('cardStatus').textContent=DICT[lang].cardStatusDefault;
+  }
+
+  // อัปเดตภาษาในกล่องแจ้งเตือนการป้องกันทำข้อสอบซ้ำ หากกำลังเปิดอยู่
+  var lockModalEl=document.getElementById('lockModal');
+  if(!lockModalEl.hidden && lockModalEl.dataset.lockStatus){
+    showLockModal(lockModalEl.dataset.lockStatus);
   }
 
   if(!document.getElementById('screen-briefing').hidden){
